@@ -7,28 +7,38 @@ class GenHyperOptimizer:
     '''
     
     # Arbitrary values given, to be refined
-    CROSSOVER_RATE = 0.7
-    MUTATION_RATE = 0.01
-    MAX_POP = 10
+    _CROSSOVER_RATE = 0.7
+    _MUTATION_RATE = 0.01
+    _MAX_POP = 10
     
-    sum_fitness = 0
-    max_fitness = 0
-    min_fitness = 0
+    _sum_fitness = 0
+    _max_fitness = 0
+    _min_fitness = 0
     
-    fitness = []
-    inter_fitness = []
+    _fitness = []
+    _inter_fitness = []
     
-    optimized_parameters = {}
+    _optimized_parameters = {}
+    _accuracy = 0 # Accuracy of the optimized hyperparameters
     
-    gen_count = 0
+    _gen_count = 0
     
-    # Can implement the method elitist selection
+    _odd_generation = []
+    _even_generation = []
+    
+    # Can implement the method elitist selection, niche and speciation
     
     # Initializes the optimizer, giving the required values
     def __init__(self, model=None, hyperparameters=None, fitnessFunction=None, cost=None):
         '''
             model: A machine learning model defined in scikit-learn
-            hyperparameters: The hyperparameters to be optimized for the model
+            hyperparameters: A dictionary specifying the hyperparameters to be optimized for the model. Format is given belw
+                - For real values. Note: the values passed must be int or float    
+                    - 'name_of_hyperparameter': [lower_bound, higher_bound]
+                - For hyperparameters with string values. Note: All values that must be evaluated has to be passed
+                    - 'name_of_hyperparameter': ['string_alternatives']
+                - For hyperparameters with boolean values. Can pass both values unless absolutely sure. Won't impact performance much.
+                    - 'name_of_hyperparameter': [True, False] 
             scoring: A scoring method to calculate fitness function. Example: mean_absolute_error
             cost:
                 - min: The lower the fitness, the better the model. For example, the lowest value for mean_absolute_error indicates an accurate model
@@ -54,6 +64,31 @@ class GenHyperOptimizer:
         self.cost = cost
     
     
+    def _encode(self):
+        '''
+            Decodes the hyperparameter configurations into a single string
+            The entire string is mapped using a fixed-point coding
+            For integers, (fixed-point coding) they are simply converted to a signed binary string, if the first bit is 0 it's positive and vice-versa
+            For floats, the chosen method is scaled-integer coding
+            For string, each value will be given a number and that number will be decoded to a unsigned binary string
+            For booleans, one bit will be assigned. 1 is true and 0 is false.
+            
+            All data to be normalized. to check 
+        '''
+        for key, value in self.hyperparameters.items():
+            
+            if type(value[0]) == int:
+                pass
+            elif type(value[0]) == float:
+                pass
+            elif type(value[0]) == str:
+                pass
+            elif type(value[0]) == bool:
+                pass
+            else:
+                return ValueError("Incorrect datatype passed in the values for hyperparameters.")
+    
+    
     def _printGenerationReport(self):
         # To generate a report based on the statistics calculated
         pass
@@ -77,10 +112,16 @@ class GenHyperOptimizer:
         return False
     
     def _crossover(self):
+        '''
+            Consider two-point crossover
+        '''
         pass
     
     
     def _mutation(self):
+        '''
+            Thinking of bit-flip mutation but to look at other methods
+        '''
         pass
     
     
