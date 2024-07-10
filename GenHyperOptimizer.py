@@ -1,5 +1,6 @@
 from sklearn.metrics import mean_absolute_error
 import random
+from services import encode, printGenerationReport, calculateStatistics, flip
 
 class GenHyperOptimizer:
     '''
@@ -26,6 +27,8 @@ class GenHyperOptimizer:
     _odd_generation = []
     _even_generation = []
     
+    bits = []
+    
     # Can implement the method elitist selection, niche and speciation
     
     # Initializes the optimizer, giving the required values
@@ -49,7 +52,7 @@ class GenHyperOptimizer:
             raise ValueError("A model must be passed.")
         
         if not hyperparameters:
-            raise ValueError("A list of hyperparameters to be optimized must to be passed.")
+            raise ValueError("A list of hyperparameters to be optimized must be passed.")
         
         if not fitnessFunction:
             raise ValueError("A scoring metric must be passed.")
@@ -63,53 +66,6 @@ class GenHyperOptimizer:
         self.fitnessFunction = fitnessFunction
         self.cost = cost
     
-    
-    def _encode(self):
-        '''
-            Decodes the hyperparameter configurations into a single string
-            The entire string is mapped using a fixed-point coding
-            For integers, (fixed-point coding) they are simply converted to a signed binary string, if the first bit is 0 it's positive and vice-versa
-            For floats, the chosen method is scaled-integer coding
-            For string, each value will be given a number and that number will be decoded to a unsigned binary string
-            For booleans, one bit will be assigned. 1 is true and 0 is false.
-            
-            All data to be normalized. to check 
-        '''
-        for key, value in self.hyperparameters.items():
-            
-            if type(value[0]) == int:
-                pass
-            elif type(value[0]) == float:
-                pass
-            elif type(value[0]) == str:
-                pass
-            elif type(value[0]) == bool:
-                pass
-            else:
-                return ValueError("Incorrect datatype passed in the values for hyperparameters.")
-    
-    
-    def _printGenerationReport(self):
-        # To generate a report based on the statistics calculated
-        pass
-        
-    
-    def _calculateStatistics(self):
-        # To calculate sum_fitness, min_fitness, max_fitness
-        pass
-    
-    
-    def _flip(self, p=0.7):
-        '''
-            Returns a boolean true value with a specified probability (a bernoulli random variable) 
-            A biased coin is tossed that comes up head with probability 'p'
-            Taken from book by David E. Goldberg pg 60 - 70
-        '''
-        num = random.random()
-        
-        if num < p:
-            return True
-        return False
     
     def _crossover(self):
         '''
