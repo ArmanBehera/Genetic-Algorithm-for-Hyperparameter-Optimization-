@@ -16,7 +16,7 @@ def _calculateBinaryLength(value: int):
     return (n + 1)
 
 
-def _convertBinary(value: int, length: int):
+def _convertIntToBinary(value: int, length: int):
     if value >= 0:
         binary = f"0{value:b}"
     else:
@@ -27,6 +27,14 @@ def _convertBinary(value: int, length: int):
 
     return binary 
 
+
+def _convertBinaryToInt(value: int):
+    
+    num = int(value[1:], 2)
+    if value[0] == "1":
+        num *= -1
+        
+    return num
 
 def getInfo(hyperparameters):
     info = {}
@@ -86,39 +94,61 @@ def encode(parameters = {}, info = {}, **kwargs):
             length = data[1]
             
             if datatype == "int":
-                chromsome += _convertBinary(value, length)
+                chromsome += _convertIntToBinary(value, length)
             
             elif datatype == "float":
                 exponent = data[2]
                 val = value * (10 ** exponent)
-                chromsome += _convertBinary(int(val), length)
+                chromsome += _convertIntToBinary(int(val), length)
                 
             elif datatype == "str":
                 length = data[2]
                 listOfItems = kwargs[key]
-                print(listOfItems)
                 n = listOfItems.index(value)
-                chromsome += _convertBinary(n, length) 
+                chromsome += _convertIntToBinary(n, length) 
             
             elif datatype == "bool":
                 chromsome += 1 if value else 0
                 
             else:
                 return ValueError("Incorrect datatype passed in the values for hyperparameters.")
-            
-            print(value)
             print(chromsome)
-            
         return chromsome
 
-def printGenerationReport():
-    # To generate a report based on the statistics calculated
-    pass
-    
 
-def calculateStatistics():
-    # To calculate sum_fitness, min_fitness, max_fitness
-    pass
+def decode(chromsome="", info="", **kwargs):
+    
+    hyperparameters = {}
+    start = 0
+
+    for key, value in info.items():
+        datatype = value[0]
+        length = value[1]
+        end = start + length
+        string = chromsome[start: end]
+        start = end
+        
+        print(f"{string}\n")
+        if datatype == "int":
+            hyperparameters[key] = _convertBinaryToInt(string)
+            
+        elif datatype == "float":
+            exponent = value[2]
+            
+            string = _convertBinaryToInt(string)
+            hyperparameters[key] = float(string) / (10 ** exponent)
+            
+        elif datatype == "str":
+            listOfItems = kwargs[key]
+            hyperparameters[key] = listOfItems[_convertBinaryToInt(string)]
+
+        elif datatype == "bool":
+            hyperparameters[key] = True if string else False
+            
+        else:
+            return ValueError("Incorrect datatype passed in the values for hyperparameters.")
+        
+    return hyperparameters
 
 
 def flip(p=0.7):

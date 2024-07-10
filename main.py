@@ -1,4 +1,4 @@
-from services import getInfo, _calculatePrecision, encode
+from services import getInfo, encode, decode
 
 if __name__ == "__main__":
     dictionary = {
@@ -16,8 +16,10 @@ if __name__ == "__main__":
         "max_depth": 10,
         "min_samples_split": 5,
         "min_samples_leaf": 8,
-        "loss": "ls"
+        "loss": "lad"
     }
     info = getInfo(dictionary)
     print(info)
-    encode(parameters=dict2, info=info, loss=dictionary["loss"])
+    chromosome =  encode(parameters=dict2, info=info, loss=dictionary["loss"])
+    print("\n")
+    print(decode(chromsome=chromosome, info=info, loss=dictionary["loss"]))

@@ -88,6 +88,17 @@ class GenHyperOptimizer:
     def _maximize_selection(self):
         pass
     
+    
+    def printGenerationReport():
+    # To generate a report based on the statistics calculated
+        pass
+
+
+    def calculateStatistics():
+        # To calculate sum_fitness, min_fitness, max_fitness
+        pass
+    
+    
     # Stores the optimized parameters
     def optimize(self, X_train=None, y_train=None, X_test=None, y_test=None):
         
