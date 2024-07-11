@@ -28,7 +28,7 @@ def _convertIntToBinary(value: int, length: int):
     return binary 
 
 
-def _convertBinaryToInt(value: int):
+def _convertBinaryToInt(value: str):
     
     num = int(value[1:], 2)
     if value[0] == "1":
@@ -112,23 +112,22 @@ def encode(parameters = {}, info = {}, **kwargs):
                 
             else:
                 return ValueError("Incorrect datatype passed in the values for hyperparameters.")
-            print(chromsome)
         return chromsome
 
 
-def decode(chromsome="", info="", **kwargs):
+def decode(chromsome="", info={}, **kwargs):
     
     hyperparameters = {}
     start = 0
 
     for key, value in info.items():
+        
         datatype = value[0]
         length = value[1]
         end = start + length
         string = chromsome[start: end]
         start = end
         
-        print(f"{string}\n")
         if datatype == "int":
             hyperparameters[key] = _convertBinaryToInt(string)
             
@@ -162,3 +161,19 @@ def flip(p=0.7):
     if num < p:
         return True
     return False
+
+
+
+def generateRandomFloat(lower_limit, higher_limit, precision):
+    
+    minP = _calculatePrecision(lower_limit)
+    maxP = _calculatePrecision(higher_limit)
+    
+    scale_factor = 10 ** (minP if minP > maxP else maxP)
+    
+    lower_limit = int(lower_limit * scale_factor)
+    higher_limit = int(higher_limit * scale_factor)
+    
+    randomNum = random.randrange(lower_limit, higher_limit)
+    
+    return (randomNum / scale_factor)
