@@ -4,8 +4,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import ensemble
 from sklearn.metrics import mean_absolute_error
+import time
 
 if __name__ == "__main__":
+    
+    start = time.time()
     
     dictionary = {
         "n_estimators": [150, 300],
@@ -49,3 +52,7 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
     obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test)
+    
+    end = time.time()
+    
+    print(f"\nTime Taken: {end - start}")

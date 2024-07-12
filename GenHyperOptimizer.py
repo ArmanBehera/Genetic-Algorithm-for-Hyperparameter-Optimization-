@@ -71,7 +71,7 @@ class GenHyperOptimizer:
         self._info = getInfo(hyperparameters=hyperparameters)
     
     
-    def _crossover(self):
+    def _crossover(self, p1, p2):
         '''
             Consider two-point crossover
         '''
@@ -85,22 +85,77 @@ class GenHyperOptimizer:
         pass
     
     
-    def _minimize_selection(self):
-        pass
-    
-    
-    def _maximize_selection(self):
-        pass
-    
+    def _rank_selection(self, generationData, sort=False):
+        '''
+            Rank-based selection. Ranking is based on the cost function given
+            Follows the linear ranking described by John Grefenstette in his paper
+        '''
+        
+        # Rank of the least fit is decided to be zero
+        
+        if self._cost == "max":
+            generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
+        elif self._cost == "min":
+            generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
+        else:
+            return ValueError("The value for cost function can only be max and min")
+        
+        alpha_rank = 0.2 # Number of offsprings of the worst individual
+        beta_rank = 1.2 # Number of offsprings of the best individual. Gigher the value, earlier the convergence 
+        
+        sum_probability = (alpha_rank + beta_rank) / 2.0 # Proved by the author
+        
+        length = len(generationData)
+        interSum = 0 # Intermediate sum used in the roulette wheel selection
+        for i in range(length):
+            probability = (alpha_rank + (float(i) / (length - 1)) * (beta_rank - alpha_rank)) / length # Formula is defined in the page 2 of the paper
+            generationData[i].append(probability)
+            interSum += probability
+            generationData[i].append(interSum)
+        
+        p1 = generateRandomFloat(0.0, sum_probability, precision=5)
+        p2 = generateRandomFloat(0.0, sum_probability, precision=5)
+        
+        p1_notfound = True
+        p2_notfound = True
+        
+        index = 0
+        
+        while p1_notfound or p2_notfound:
+            current = generationData[index][4]
+                
+            if p1_notfound:
+                if p1 < current:
+                    p1 = generationData[index][0]
+                    p1_notfound = False
+            
+            if p2_notfound:
+                if p2 < current:
+                    p2 = generationData[index][0]
+                    p2_notfound = False
+            
+            index += 1
+        
+        return p1, p2
+        
     
     def printGenerationReport():
     # To generate a report based on the statistics calculated
         pass
 
 
-    def calculateStatistics():
+    def calculateStatistics(self, generation):
         # To calculate sum_fitness, min_fitness, max_fitness
-        pass
+        interSum = 0
+        
+        for i in range(self._MAX_POP):
+            current = generation[i][2]
+            self._sum_fitness += current
+            
+            if current > self._max_fitness:
+                self._max_fitness = current
+            elif current < self._min_fitness:
+                self._min_fitness = current
     
     
     def _calculateFitness(self, hyperparameters, X_train, y_train, X_test, y_test):
@@ -151,11 +206,8 @@ class GenHyperOptimizer:
                 else:
                     raise ValueError("Incorrect datatype passed in the values for hyperparameters.")  
             
-            print(hyperparameters)
             chromosome = encode(parameters=hyperparameters, info=self._info, **stringHyper)
-            print(chromosome)
             fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
-            print(fitnessScore)
             self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
     
     
@@ -179,6 +231,15 @@ class GenHyperOptimizer:
         
         print("Starting to fill the initial generation of population.")
         self._fillPopulation()
+        
+        print(self._odd_generation)
+        print()
+        p1, p2 = self._rank_selection(self._odd_generation, sort=False)
+         
+        for i in range(15):
+            print(f"p1: {p1} and p2: {p2}")
+            p1, p2 = self._rank_selection(self._odd_generation, sort=True)
+            
         
     
     def get_params(self):

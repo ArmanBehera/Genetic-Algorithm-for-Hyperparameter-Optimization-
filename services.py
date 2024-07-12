@@ -166,10 +166,7 @@ def flip(p=0.7):
 
 def generateRandomFloat(lower_limit, higher_limit, precision):
     
-    minP = _calculatePrecision(lower_limit)
-    maxP = _calculatePrecision(higher_limit)
-    
-    scale_factor = 10 ** (minP if minP > maxP else maxP)
+    scale_factor = 10 ** precision
     
     lower_limit = int(lower_limit * scale_factor)
     higher_limit = int(higher_limit * scale_factor)
