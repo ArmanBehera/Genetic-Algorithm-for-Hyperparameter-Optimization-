@@ -10,9 +10,10 @@ class GenHyperOptimizer:
     '''
     
     # Arbitrary values given, to be refined
-    _CROSSOVER_RATE = 0.7
+    _CROSSOVER_RATE = 1
     _MUTATION_RATE = 0.01
     _MAX_POP = 30
+    _UNIFORM_CROSSOVER_RATE = 0.5
     
     _sum_fitness = 0
     _max_fitness = 0
@@ -71,47 +72,118 @@ class GenHyperOptimizer:
         self._info = getInfo(hyperparameters=hyperparameters)
     
     
-    def _crossover(self, p1, p2):
+    def _single_point_crossover(self, p1, p2):
         '''
-            Consider two-point crossover
+            Single-point crossover
+            Failed: Not creating enough diversity
         '''
-        pass
+
+        
+        crossover_point = random.randrange(1, (len(p1) - 1))
+        print(crossover_point)
+        
+        c1 = p1[:crossover_point] + p2[crossover_point:]
+        c2 = p2[:crossover_point] + p1[crossover_point:]
+        
+        '''print(p1)
+        print(p2)
+        print(c1)
+        print(c2) '''
+        
+        return c1, c2
     
     
-    def _mutation(self):
+    def _uniform_crossover(self, p1, p2):
+        '''
+            Uniform crossover
+            Failed: Not enough diversity as most of the bits are similar
+        '''
+        c1 = ""
+        c2 = ""
+        for i in range(len(p1)):
+            
+            if flip(p=self._UNIFORM_CROSSOVER_RATE):
+                c1 += p1[i]
+                c2 += p2[i]
+            else:
+                c1 += p2[i]
+                c2 += p1[i]
+
+        return c1, c2
+    
+    
+    def _hybrid_crossover(self, p1, p2):
+        '''
+            Here each hyperparameter value will go through a crossover
+            Taken inspiration from value-encoding crossover and multi-point crossover
+        '''
+
+        start = 0
+        if flip(self._CROSSOVER_RATE):
+            c1 = ""
+            c2 = ""
+            for value in self._info.values():
+            
+                length = value[1]
+                end = start + length
+                p1_hp = p1[start: end]
+                p2_hp = p2[start: end]
+                start = end
+                
+                gc1, gc2 = self._single_point_crossover(p1_hp, p2_hp)
+                
+                c1 += gc1
+                c2 += gc2
+                
+            return c1, c2
+        
+        else:
+            return p1, p2    
+                
+    
+    def _mutation(self, p1):
         '''
             Thinking of bit-flip mutation but to look at other methods
         '''
-        pass
-    
+        # If the bit is to be changed
+        length = len(p1)
+
+        if flip(length * self._MUTATION_RATE):
+            bitPosition = random.randrange(0, length)
+            
+            flippedBit = '0' if p1[bitPosition] == '1' else '1'
+            p1 = p1[:bitPosition] + flippedBit + p1[bitPosition + 1:]
+                
+        return p1
+
     
     def _rank_selection(self, generationData, sort=False):
         '''
             Rank-based selection. Ranking is based on the cost function given
             Follows the linear ranking described by John Grefenstette in his paper
-        '''
-        
+        '''   
         # Rank of the least fit is decided to be zero
-        
-        if self._cost == "max":
-            generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
-        elif self._cost == "min":
-            generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
-        else:
-            return ValueError("The value for cost function can only be max and min")
         
         alpha_rank = 0.2 # Number of offsprings of the worst individual
         beta_rank = 1.2 # Number of offsprings of the best individual. Gigher the value, earlier the convergence 
         
         sum_probability = (alpha_rank + beta_rank) / 2.0 # Proved by the author
         
-        length = len(generationData)
-        interSum = 0 # Intermediate sum used in the roulette wheel selection
-        for i in range(length):
-            probability = (alpha_rank + (float(i) / (length - 1)) * (beta_rank - alpha_rank)) / length # Formula is defined in the page 2 of the paper
-            generationData[i].append(probability)
-            interSum += probability
-            generationData[i].append(interSum)
+        if not sort:
+            if self._cost == "max":
+                generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
+            elif self._cost == "min":
+                generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
+            else:
+                return ValueError("The value for cost function can only be max and min")
+            
+            length = len(generationData)
+            interSum = 0 # Intermediate sum used in the roulette wheel selection
+            for i in range(length):
+                probability = (alpha_rank + (float(i) / (length - 1)) * (beta_rank - alpha_rank)) / length # Formula is defined in the page 2 of the paper
+                generationData[i].append(probability)
+                interSum += probability
+                generationData[i].append(interSum)
         
         p1 = generateRandomFloat(0.0, sum_probability, precision=5)
         p2 = generateRandomFloat(0.0, sum_probability, precision=5)
@@ -136,7 +208,12 @@ class GenHyperOptimizer:
             
             index += 1
         
-        return p1, p2
+        # If the list is not sorted, return the sorted list
+        if not sort:
+            return generationData, p1, p2
+        
+        if sort:
+            return p1, p2
         
     
     def printGenerationReport():

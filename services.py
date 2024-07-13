@@ -115,7 +115,7 @@ def encode(parameters = {}, info = {}, **kwargs):
         return chromsome
 
 
-def decode(chromsome="", info={}, **kwargs):
+def decode(chromosome="", info={}, **kwargs):
     
     hyperparameters = {}
     start = 0
@@ -125,7 +125,7 @@ def decode(chromsome="", info={}, **kwargs):
         datatype = value[0]
         length = value[1]
         end = start + length
-        string = chromsome[start: end]
+        string = chromosome[start: end]
         start = end
         
         if datatype == "int":
@@ -150,17 +150,13 @@ def decode(chromsome="", info={}, **kwargs):
     return hyperparameters
 
 
-def flip(p=0.7):
+def flip(p):
     '''
         Returns a boolean true value with a specified probability (a bernoulli random variable) 
         A biased coin is tossed that comes up head with probability 'p'
         Taken from book by David E. Goldberg pg 60 - 70
     '''
-    num = random.random()
-    
-    if num < p:
-        return True
-    return False
+    return random.random() < p
 
 
 
