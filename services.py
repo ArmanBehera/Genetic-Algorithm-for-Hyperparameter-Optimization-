@@ -1,42 +1,55 @@
 import random
 import math
 
+
 def _calculatePrecision(num):
+    '''
+        Calculates the precision (number of decimal digits) for a floating point number
+    '''
     string = str(num).split('.')
     
     return len(string[1])
 
+
 def _calculateBinaryLength(value: int):
     
-    if value >= 0:
-        n = math.ceil(math.log2(value + 1))
+    return len(f"{value:b}")
+
+def _convertIntToBinary(value: int, positive: bool, length: int):
+    '''
+        If the value is positive, the first bit represents the highest exponent order of the binary value
+        If the value is negative, the first bit represents if the value is positive or not
+    '''
+    if positive:
+        if value < 0:
+            return ValueError("A positive value variable cannot be negative.")
+        binary = f"{value:b}"
+        binary = '0' * (length - len(binary)) + binary
     else:
-        n = math.ceil(math.log2(value * -1 + 1))
-        
-    return (n + 1)
+        if value >= 0:
+            binary = f"0{value:b}"
+        else:
+            b1 = f"{value:b}"
+            binary = f"1{b1[1:]}" # Converting a negative value
+    
+        binary = binary[0] + '0' * (length - len(binary)) + binary[1:] 
+
+    return binary
 
 
-def _convertIntToBinary(value: int, length: int):
-    if value >= 0:
-        binary = f"0{value:b}"
+def _convertBinaryToInt(value: str, positive: bool):
+    
+    if positive:
+        num = int(value, 2)
     else:
-        b1 = f"{value:b}"
-        binary = f"1{b1[1:]}"
-    
-    binary = binary[0] + '0' * (length - len(binary)) + binary[1:]
-
-    return binary 
-
-
-def _convertBinaryToInt(value: str):
-    
-    num = int(value[1:], 2)
-    if value[0] == "1":
-        num *= -1
+        num = int(value[1:], 2)
+        if value[0] == "1":
+            num *= -1
         
     return num
 
-def getInfo(hyperparameters):
+
+def getInfo(hyperparameters: dict):
     info = {}
     
     for key, value in hyperparameters.items():
@@ -45,9 +58,14 @@ def getInfo(hyperparameters):
         # For integers, the number of bits requried is calculated + 1. First bit represents if the number is positive or negative
         if type(val) == int:
             val2 = value[1]
-            
             n = _calculateBinaryLength(val2)
-            info[key] = ["int", n]
+            
+            if val < 0 and val2 < 0:
+                info[key] = ["int", n, 0, False]
+            elif val < 0 and val2 >= 0:
+                info[key] = ["int", n + 1, 0, False] # n + 1 to accomodate for the extra bit that represents the sign of the value
+            else: # Both val and val2 are greater than zero
+                info[key] = ["int", n, 0, True] 
             
         # For floating point values
         elif type(val) == float:
@@ -58,13 +76,18 @@ def getInfo(hyperparameters):
             
             max = p1 if p1 > p2 else p2
             
-            v2 = val2 * (10**max)
-            n = _calculateBinaryLength(int(v2))
+            val2 = val2 * (10**max)
+            n = _calculateBinaryLength(int(val2))
             
-            info[key] = ["float", n, max]
+            if val < 0 and val2 < 0:
+                info[key] = ["float", n, max, False]
+            elif val < 0 and val2 >= 0:
+                info[key] = ["float", n + 1, max, False] # n + 1 to accomodate for the extra bit that represents the sign of the value
+            else: # Both val and val2 are greater than zero
+                info[key] = ["float", n, max, True] 
             
         elif type(val) == str:
-            n = _calculateBinaryLength(len(value))
+            n = _calculateBinaryLength((len(value) - 1))
             info[key] = ["str", n, len(value)]
         
         elif type(val) == bool:
@@ -93,25 +116,23 @@ def encode(parameters = {}, info = {}, **kwargs):
             datatype = data[0]
             length = data[1]
             
-            if datatype == "int":
-                chromsome += _convertIntToBinary(value, length)
-            
-            elif datatype == "float":
+            if datatype == "int" or datatype == "float":
                 exponent = data[2]
-                val = value * (10 ** exponent)
-                chromsome += _convertIntToBinary(int(val), length)
+                positive = data[3]
+                value = int(value * (10 ** exponent))
+                chromsome += _convertIntToBinary(value=value, length=length, positive=positive)
                 
             elif datatype == "str":
-                length = data[2]
                 listOfItems = kwargs[key]
                 n = listOfItems.index(value)
-                chromsome += _convertIntToBinary(n, length) 
+                chromsome += _convertIntToBinary(value=n, length=length, positive=True) 
             
             elif datatype == "bool":
                 chromsome += 1 if value else 0
                 
             else:
                 return ValueError("Incorrect datatype passed in the values for hyperparameters.")
+            
         return chromsome
 
 
@@ -129,17 +150,19 @@ def decode(chromosome="", info={}, **kwargs):
         start = end
         
         if datatype == "int":
-            hyperparameters[key] = _convertBinaryToInt(string)
+            positive = value[3]
+            hyperparameters[key] = _convertBinaryToInt(value=string, positive=positive)
             
         elif datatype == "float":
             exponent = value[2]
+            positive = value[3]
             
-            string = _convertBinaryToInt(string)
-            hyperparameters[key] = float(string) / (10 ** exponent)
+            string = _convertBinaryToInt(value=string, positive=positive)
+            hyperparameters[key] = (float(string) / (10 ** exponent))
             
         elif datatype == "str":
             listOfItems = kwargs[key]
-            hyperparameters[key] = listOfItems[_convertBinaryToInt(string)]
+            hyperparameters[key] = listOfItems[_convertBinaryToInt(value=string, positive=True)]
 
         elif datatype == "bool":
             hyperparameters[key] = True if string else False

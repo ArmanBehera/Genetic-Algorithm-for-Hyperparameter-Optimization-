@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
     
     
-    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, hyperparameters=dictionary, fitnessFunction=mean_absolute_error, cost="min")
+    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, hyperparameters=dictionary, fitnessFunction=mean_absolute_error, objective="min")
     
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
-    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test)
+    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=1)
     
     end = time.time()
     
