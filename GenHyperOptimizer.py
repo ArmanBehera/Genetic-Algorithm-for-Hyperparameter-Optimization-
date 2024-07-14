@@ -11,8 +11,8 @@ class GenHyperOptimizer:
     
     # Arbitrary values given, to be refined
     _CROSSOVER_RATE = 1
-    _MUTATION_RATE = 0.5
-    _MAX_POP = 10
+    _MUTATION_RATE = 0.01
+    _MAX_POP = 30
     _UNIFORM_CROSSOVER_RATE = 0.5
     _MAX_GEN = 10
     
@@ -21,10 +21,8 @@ class GenHyperOptimizer:
     _min_fitness = 0
     
     _fitness = []
-    _inter_fitness = []
     
     _optimized_parameters = {}
-    _accuracy = 0 # Accuracy of the optimized hyperparameters
     
     _gen_count = 0
     
@@ -166,9 +164,9 @@ class GenHyperOptimizer:
         
         if not sort:
             if self._objective == "max":
-                generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
-            elif self._objective == "min":
                 generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
+            elif self._objective == "min":
+                generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
             else:
                 return ValueError("The value for cost function can only be max and min")
             
@@ -238,6 +236,9 @@ class GenHyperOptimizer:
     def _calculateStatistics(self, generation):
         # To calculate sum_fitness, min_fitness, max_fitness
         
+        self._max_fitness = generation[0][2]
+        self._min_fitness = generation[0][2]
+        
         for i in range(self._MAX_POP):
             current = generation[i][2]
             self._sum_fitness += current
@@ -259,7 +260,7 @@ class GenHyperOptimizer:
         return self._fitnessFunction(y_test, model.predict(X_test))
     
     
-    def _fillPopulation(self):
+    def _randomFillPopulation(self):
         '''
             Fills the first generation of population with random hyperparameters
             Next update: To make it in such a way that the points are spread out evenly 
@@ -306,14 +307,64 @@ class GenHyperOptimizer:
             print(f"Fitness Score: {fitnessScore}")
     
     
+    def _uniformFillPopulation(self):
+        
+        increment = []
+        for key, value in self._hyperparameters.items():
+            datatype = self._info(key)
+            
+            if datatype == "int" or datatype == "float":
+                v0  = value[0]
+                v1 = value[1]
+                
+                if v0 < 0:
+                    v0 *= -1
+                if v1 < 0:
+                    v1 *= -1
+                
+                increment[key] = (v0 + v1) / self._MAX_POP
+        
+        for i in range(self._MAX_POP):
+            
+            hyperparameters = {}
+            for key, value in self._hyperparameters.items():
+                datatype = self._info[key][0]
+                
+                if datatype == "int":
+                    lowerLimit = value[0]
+                    increase = increment[key]
+                    hyperparameters[key] = int(lowerLimit + (increase * i))
+                    
+                elif datatype == "float":
+                    lowerLimit = value[0]
+                    increase = increment[key]
+                    hyperparameters[key] = lowerLimit + (increase * i)
+                    
+                elif datatype == "str":
+                    length = self._info[key][2] 
+                    hyperparameters[key] = value[i % length]
+                    
+                elif datatype == "bool":
+                    if len(value) == 1:
+                        hyperparameters[key] = value[0]
+                    else:
+                        hyperparameters[key] = value[i % 2]
+                        
+            chromosome = encode(parameters=hyperparameters, info=self._info, **self._stringHyper)
+            fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
+            self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
+            print(f"Chromsome: {chromosome}")
+            print(f"Decoded Hyperparameters: {hyperparameters}")
+            print(f"Fitness Score: {fitnessScore}")
+    
     def _decodeHyperparameters(self, c, p1, p2):
         '''
             Decodes parameters and checks for validity
         '''
-        
         c_decoded = decode(chromosome=c, info=self._info, **self._stringHyper)
-        for key, value in self._hyperparameters.items():
-            if c_decoded[key] < value[0] or c_decoded[key] > value[1]:
+        
+        for key in self._stringHyper.keys():
+            if c_decoded[key] == "Invalid_data!":
                 if flip(0.5):
                     c_decoded[key] = p1[1][key]
                 else:
@@ -359,7 +410,7 @@ class GenHyperOptimizer:
         
         
         print("Starting to fill the initial generation of population.")
-        self._fillPopulation()
+        self._randomFillPopulation()
         self._gen_count += 1
         print("Filled initial population")
         for i in range(self._MAX_GEN + 1):

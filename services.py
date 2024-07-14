@@ -162,7 +162,10 @@ def decode(chromosome="", info={}, **kwargs):
             
         elif datatype == "str":
             listOfItems = kwargs[key]
-            hyperparameters[key] = listOfItems[_convertBinaryToInt(value=string, positive=True)]
+            try:
+                hyperparameters[key] = listOfItems[_convertBinaryToInt(value=string, positive=True)]
+            except:
+                hyperparameters[key] = "Invalid_data!"
 
         elif datatype == "bool":
             hyperparameters[key] = True if string else False
