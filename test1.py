@@ -21,7 +21,7 @@ if __name__ == "__main__":
     }
     
     dict2 = {
-        "n_estimators": 75,
+        "n_estimators": 175,
         "learning_rate": 0.2,
         "max_depth": 10,
         "min_samples_split": 5,
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
-    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=1)
+    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=2)
     
     end = time.time()
     

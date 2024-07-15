@@ -10,8 +10,8 @@ class GenHyperOptimizer:
     '''
     
     # Arbitrary values given, to be refined
-    _CROSSOVER_RATE = 1
-    _MUTATION_RATE = 0.01
+    _CROSSOVER_RATE = 0.7
+    _MUTATION_RATE = 0.03
     _MAX_POP = 30
     _UNIFORM_CROSSOVER_RATE = 0.5
     _MAX_GEN = 10
@@ -238,6 +238,7 @@ class GenHyperOptimizer:
         
         self._max_fitness = generation[0][2]
         self._min_fitness = generation[0][2]
+        self._sum_fitness = 0
         
         for i in range(self._MAX_POP):
             current = generation[i][2]
@@ -309,21 +310,6 @@ class GenHyperOptimizer:
     
     def _uniformFillPopulation(self):
         
-        increment = []
-        for key, value in self._hyperparameters.items():
-            datatype = self._info(key)
-            
-            if datatype == "int" or datatype == "float":
-                v0  = value[0]
-                v1 = value[1]
-                
-                if v0 < 0:
-                    v0 *= -1
-                if v1 < 0:
-                    v1 *= -1
-                
-                increment[key] = (v0 + v1) / self._MAX_POP
-        
         for i in range(self._MAX_POP):
             
             hyperparameters = {}
@@ -332,15 +318,18 @@ class GenHyperOptimizer:
                 
                 if datatype == "int":
                     lowerLimit = value[0]
-                    increase = increment[key]
+                    higherLimit = value[1]
+                    increase = (higherLimit - lowerLimit) / self._MAX_POP
                     hyperparameters[key] = int(lowerLimit + (increase * i))
                     
                 elif datatype == "float":
                     lowerLimit = value[0]
-                    increase = increment[key]
+                    higherLimit = value[1]
+                    increase = (higherLimit - lowerLimit) / self._MAX_POP
                     hyperparameters[key] = lowerLimit + (increase * i)
                     
                 elif datatype == "str":
+                    self._stringHyper[key] = value
                     length = self._info[key][2] 
                     hyperparameters[key] = value[i % length]
                     
@@ -356,6 +345,7 @@ class GenHyperOptimizer:
             print(f"Chromsome: {chromosome}")
             print(f"Decoded Hyperparameters: {hyperparameters}")
             print(f"Fitness Score: {fitnessScore}")
+    
     
     def _decodeHyperparameters(self, c, p1, p2):
         '''
@@ -410,7 +400,7 @@ class GenHyperOptimizer:
         
         
         print("Starting to fill the initial generation of population.")
-        self._randomFillPopulation()
+        self._uniformFillPopulation()
         self._gen_count += 1
         print("Filled initial population")
         for i in range(self._MAX_GEN + 1):
