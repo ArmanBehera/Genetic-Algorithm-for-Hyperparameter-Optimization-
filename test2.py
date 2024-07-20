@@ -19,7 +19,7 @@ if __name__ == "__main__":
         "loss": ["huber", "squared_error", "quantile"]
     }
     
-    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, hyperparameters=dictionary, fitnessFunction=mean_absolute_error, objective="min")
+    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, search_space=dictionary, fitnessFunction=mean_absolute_error, objective="min")
 
     '''  
     p1 = "0011001111001010000010000100000100000"

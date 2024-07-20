@@ -128,7 +128,7 @@ def encode(parameters = {}, info = {}, **kwargs):
                 chromsome += _convertIntToBinary(value=n, length=length, positive=True) 
             
             elif datatype == "bool":
-                chromsome += 1 if value else 0
+                chromsome += '1' if value else '0'
                 
             else:
                 return ValueError("Incorrect datatype passed in the values for hyperparameters.")

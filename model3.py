@@ -4,34 +4,21 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import ensemble
 from sklearn.metrics import mean_absolute_error
+from sklearn import linear_model
 import time
+from skopt import BayesSearchCV
 
 if __name__ == "__main__":
     
     start = time.time()
     
     dictionary = {
-        "n_estimators": [150, 300],
-        "learning_rate": [0.1, 0.3],
-        "max_depth": [5, 30],
-        "min_samples_split": [4, 10],
-        "min_samples_leaf": [4, 10],
-        "max_features": [0.1, 0.9],
-        "loss": ["huber", "squared_error", "quantile"]
+        "alpha": (0.0001, 1.0),  # Increase upper bound for alpha
+        "l1_ratio": (0.0, 1.0),
+        "fit_intercept": [True, False],
+        "max_iter": (500, 5000),  # Increase range for max_iter
+        "selection": ('cyclic', 'random')
     }
-    
-    dict2 = {
-        "n_estimators": 175,
-        "learning_rate": 0.2,
-        "max_depth": 10,
-        "min_samples_split": 5,
-        "min_samples_leaf": 8,
-        "loss": "lad"
-    }
-    
-    
-    
-    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, hyperparameters=dictionary, fitnessFunction=mean_absolute_error, objective="min")
     
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']
@@ -51,7 +38,18 @@ if __name__ == "__main__":
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
-    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=2)
+    model = linear_model.ElasticNet()
+    
+    optimizer = BayesSearchCV(
+        estimator=model,
+        search_spaces=dictionary,
+        n_iter=30,
+        cv=5
+    )
+    
+    optimizer.fit(X_train, y_train)
+    best_params = optimizer.best_params_
+    print(best_params)
     
     end = time.time()
     

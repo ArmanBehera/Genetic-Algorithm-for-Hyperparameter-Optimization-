@@ -10,8 +10,8 @@ class GenHyperOptimizer:
     '''
     
     # Arbitrary values given, to be refined
-    _CROSSOVER_RATE = 0.7
-    _MUTATION_RATE = 0.03
+    _CROSSOVER_RATE = 1.0
+    _MUTATION_RATE = 0.05
     _MAX_POP = 30
     _UNIFORM_CROSSOVER_RATE = 0.5
     _MAX_GEN = 10
@@ -23,6 +23,7 @@ class GenHyperOptimizer:
     _fitness = []
     
     _optimized_parameters = {}
+    _optimized_accuracy = 0
     
     _gen_count = 0
     
@@ -34,7 +35,7 @@ class GenHyperOptimizer:
     # Can implement the method elitist selection, niche and speciation
     
     # Initializes the optimizer, giving the required values
-    def __init__(self, model=None, hyperparameters=None, fitnessFunction=None, objective=None):
+    def __init__(self, model=None, search_space=None, fitnessFunction=None, objective=None, max_pop=30, max_gen=10):
         '''
             model: A machine learning model defined in scikit-learn
             hyperparameters: A dictionary specifying the hyperparameters to be optimized for the model. Format is given belw
@@ -53,21 +54,24 @@ class GenHyperOptimizer:
         if not model:
             raise ValueError("A model must be passed.")
         
-        if not hyperparameters:
+        if not search_space:
             raise ValueError("A list of hyperparameters to be optimized must be passed.")
         
         if not fitnessFunction:
             raise ValueError("A scoring metric must be passed.")
         
         if not objective:
-            raise ValueError("Cost must be given as min or max to evaluate the value of fitness function.")
+            if objective != "min" or objective != "max":
+                raise ValueError("Cost must be given as min or max to evaluate the value of fitness function.")
         
         # All values have been correctly passed.
         self._model = model
-        self._hyperparameters = hyperparameters
+        self._search_space = search_space
         self._fitnessFunction = fitnessFunction
         self._objective = objective
-        self._info = getInfo(hyperparameters=hyperparameters)
+        self._info = getInfo(hyperparameters=search_space)
+        self._MAX_POP = max_pop
+        self._MAX_GEN = max_gen
     
     
     def _single_point_crossover(self, p1, p2):
@@ -157,16 +161,17 @@ class GenHyperOptimizer:
         '''   
         # Rank of the least fit is decided to be zero
         
-        alpha_rank = 0.2 # Number of offsprings of the worst individual
-        beta_rank = 1.2 # Number of offsprings of the best individual. Gigher the value, earlier the convergence 
+        alpha_rank = 0.4  # Number of offsprings of the worst individual
+        beta_rank = 1.6 # Number of offsprings of the best individual. Gigher the value, earlier the convergence 
         
         sum_probability = (alpha_rank + beta_rank) / 2.0 # Proved by the author
         
+        # In this selection, the rank of the least fit individual is defined to be zero
         if not sort:
             if self._objective == "max":
-                generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
-            elif self._objective == "min":
                 generationData = sorted(generationData, key=lambda x: x[2], reverse=False)
+            elif self._objective == "min":
+                generationData = sorted(generationData, key=lambda x: x[2], reverse=True)
             else:
                 return ValueError("The value for cost function can only be max and min")
             
@@ -210,7 +215,9 @@ class GenHyperOptimizer:
         
     
     def _printGenerationReport(self, generation, filename):
-    # To generate a report based on the statistics calculated
+        # To generate a report based on the statistics calculated
+        print(f"Generation: {generation}")
+        print(f"Filename: {filename}")
         self._calculateStatistics(generation=generation)
         
         if not filename.endswith('.txt'):
@@ -222,10 +229,15 @@ class GenHyperOptimizer:
             os.makedirs(folder)
         
         statistics = (
+            f"Model: {self._model}\n"
+            f"Fitness Function: {self._fitnessFunction}\n"
+            f"Objective: {self._objective}"
             f"Generation Count: {self._gen_count}\n"
             f"Highest Fitness: {self._max_fitness}\n"
             f"Lowest Fitness: {self._min_fitness}\n"
             f"Average Fitness: {self._sum_fitness / float(self._MAX_POP)}\n"
+            f"Best Chromosome: {generation[0][0]}\n"
+            f"Hyperparameter Configuration: {generation[0][1]}\n"
             f"Generation Data: {generation}"
         )
             
@@ -240,14 +252,26 @@ class GenHyperOptimizer:
         self._min_fitness = generation[0][2]
         self._sum_fitness = 0
         
+        index = 0
         for i in range(self._MAX_POP):
             current = generation[i][2]
             self._sum_fitness += current
             
             if current > self._max_fitness:
                 self._max_fitness = current
+                index = i
             elif current < self._min_fitness:
                 self._min_fitness = current
+                index = i
+        
+        if self._objective == "max":
+            if self._max_fitness > self._optimized_accuracy:
+                self._optimized_accuracy = self._max_fitness
+                self._optimized_parameters = generation[index][1]
+        elif self._objective == "min":
+            if self._min_fitness < self._optimized_accuracy:
+                self._optimized_accuracy = self._min_fitness
+                self._optimized_parameters = generation[index][1]
     
     
     def _calculateFitness(self, hyperparameters, X_train, y_train, X_test, y_test):
@@ -269,7 +293,7 @@ class GenHyperOptimizer:
         for i in range(self._MAX_POP):
             hyperparameters = {}
     
-            for key, value in self._hyperparameters.items():
+            for key, value in self._search_space.items():
                 data = self._info[key]
                 datatype = data[0]
                 
@@ -303,9 +327,11 @@ class GenHyperOptimizer:
             chromosome = encode(parameters=hyperparameters, info=self._info, **self._stringHyper)
             fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
             self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
-            print(f"Chromsome: {chromosome}")
-            print(f"Decoded Hyperparameters: {hyperparameters}")
-            print(f"Fitness Score: {fitnessScore}")
+            #print(f"Chromsome: {chromosome}")
+            #print(f"Decoded Hyperparameters: {hyperparameters}")
+            #print(f"Fitness Score: {fitnessScore}")
+            
+        self._optimized_accuracy = self._odd_generation[0][2]
     
     
     def _uniformFillPopulation(self):
@@ -313,7 +339,7 @@ class GenHyperOptimizer:
         for i in range(self._MAX_POP):
             
             hyperparameters = {}
-            for key, value in self._hyperparameters.items():
+            for key, value in self._search_space.items():
                 datatype = self._info[key][0]
                 
                 if datatype == "int":
@@ -342,9 +368,9 @@ class GenHyperOptimizer:
             chromosome = encode(parameters=hyperparameters, info=self._info, **self._stringHyper)
             fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
             self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
-            print(f"Chromsome: {chromosome}")
-            print(f"Decoded Hyperparameters: {hyperparameters}")
-            print(f"Fitness Score: {fitnessScore}")
+            #print(f"Chromsome: {chromosome}")
+            #rint(f"Decoded Hyperparameters: {hyperparameters}")
+            #print(f"Fitness Score: {fitnessScore}")
     
     
     def _decodeHyperparameters(self, c, p1, p2):
@@ -363,7 +389,7 @@ class GenHyperOptimizer:
         for key, value in self._info.items():
             datatype = value[0]
             if datatype == "str":
-                if c_decoded[key] not in self._hyperparameters[key]:
+                if c_decoded[key] not in self._search_space[key]:
                     if flip(0.5):
                         c_decoded[key] = p1[1][key]
                     else:
@@ -372,7 +398,7 @@ class GenHyperOptimizer:
                 if c_decoded[key] not in value:
                     c_decoded[key] = value[0]
             else:
-                if c_decoded[key] < self._hyperparameters[key][0] or c_decoded[key] > self._hyperparameters[key][1]:
+                if c_decoded[key] < self._search_space[key][0] or c_decoded[key] > self._search_space[key][1]:
                     if flip(0.5):
                         c_decoded[key] = p1[1][key]
                     else:
@@ -400,39 +426,39 @@ class GenHyperOptimizer:
         
         
         print("Starting to fill the initial generation of population.")
-        self._uniformFillPopulation()
+        self._randomFillPopulation()
         self._gen_count += 1
         print("Filled initial population")
-        for i in range(self._MAX_GEN + 1):
+        for i in range(self._MAX_GEN):
             
             if (self._gen_count % 2 == 0):
-                currentGen = self._even_generation
+                currentGen = self._even_generation.copy()
+                self._even_generation.clear()
                 nextGen = self._odd_generation
             else:
-                currentGen = self._odd_generation
+                currentGen = self._odd_generation.copy()
+                self._odd_generation.clear()
                 nextGen = self._even_generation
         
             currentGen, p1, p2 =self._rank_selection(generationData=currentGen, sort=False)
             
             for index in range(int(self._MAX_POP / 2)):
-                print(f"p1: {p1[0]}")
-                print(f"p2: {p2[0]}")
+                #print(f"p1: {p1[0]}")
+                #print(f"p2: {p2[0]}")
                 c1, c2 = self._hybrid_crossover(p1=p1[0], p2=p2[0])
                 c1 = self._mutation(c1)
                 c2 = self._mutation(c2)
-                print(f"c1: {c1}")
-                print(f"c2: {c2}")
-                #c1_decoded = decode(chromosome=c1, info=self._info, **self._stringHyper)
-                #c2_decoded = decode(chromosome=c2, info=self._info, **self._stringHyper)
+                #print(f"c1: {c1}")
+                #print(f"c2: {c2}")
                 c1, c1_decoded = self._decodeHyperparameters(c=c1, p1=p1, p2=p2)
                 c2, c2_decoded = self._decodeHyperparameters(c=c2, p1=p1, p2=p2)
                 
-                print(f"c1_decoded: {c1_decoded}")
-                print(f"c2_decoded: {c2_decoded}")
+                #print(f"c1_decoded: {c1_decoded}")
+                #print(f"c2_decoded: {c2_decoded}")
                 c1_fitness = self._calculateFitness(hyperparameters=c1_decoded, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test)
                 c2_fitness = self._calculateFitness(hyperparameters=c2_decoded, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test)
-                print(f"c1_fitness: {c1_fitness}")
-                print(f"c2_fitness: {c2_fitness}")
+                #print(f"c1_fitness: {c1_fitness}")
+                #print(f"c2_fitness: {c2_fitness}")
                 nextGen.append([c1,c1_decoded, c1_fitness])
                 nextGen.append([c2, c2_decoded, c2_fitness])
                 
@@ -442,10 +468,12 @@ class GenHyperOptimizer:
             self._printGenerationReport(currentGen, filename)
             print(f"Number of generations completed: {self._gen_count}\nStats saved in: {filename}")
             
-            currentGen = []
             self._gen_count += 1
+            print(f"currentGen: {currentGen}")
+            print(f"Odd-Generation: {self._odd_generation}")
+            print(f"Even-Generation: {self._even_generation}")
+            print(f"Length odd: {len(self._odd_generation)}")
+            print(f"Length even: {len(self._even_generation)}")
             
-        
-        
-    def get_params(self):
-        pass
+        print(f"Best hyperparameters found: {self._optimized_parameters}")
+        print(f"Accuracy: {self._optimized_accuracy}")
