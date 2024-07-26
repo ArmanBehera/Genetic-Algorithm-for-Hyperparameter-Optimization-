@@ -19,7 +19,7 @@ if __name__ == "__main__":
         "selection": ['cyclic', 'random']
     }
     
-    obj = GenHyperOptimizer(model=linear_model.ElasticNet, search_space=dictionary, fitnessFunction=mean_absolute_error, objective="min", max_pop=10, max_gen=8)
+    obj = GenHyperOptimizer(model=linear_model.ElasticNet, search_space=dictionary, fitnessFunction=mean_absolute_error, objective="min", max_pop=100, max_gen=8)
     
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
-    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=10)
+    obj.optimize(X_train=X_train, X_test=X_test, y_train=y_train, y_test=y_test, iteration_number=12)
     
     end = time.time()
     

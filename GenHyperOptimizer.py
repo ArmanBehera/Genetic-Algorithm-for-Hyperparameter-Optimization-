@@ -136,7 +136,7 @@ class GenHyperOptimizer:
         
         else:
             return p1, p2    
-                
+          
     
     def _mutation(self, p1):
         '''
@@ -231,13 +231,13 @@ class GenHyperOptimizer:
         statistics = (
             f"Model: {self._model}\n"
             f"Fitness Function: {self._fitnessFunction}\n"
-            f"Objective: {self._objective}"
+            f"Objective: {self._objective}\n"
             f"Generation Count: {self._gen_count}\n"
             f"Highest Fitness: {self._max_fitness}\n"
             f"Lowest Fitness: {self._min_fitness}\n"
             f"Average Fitness: {self._sum_fitness / float(self._MAX_POP)}\n"
             f"Best Chromosome: {generation[0][0]}\n"
-            f"Hyperparameter Configuration: {generation[0][1]}\n"
+            f"Best Hyperparameter Configuration: {generation[0][1]}\n"
             f"Generation Data: {generation}"
         )
             
