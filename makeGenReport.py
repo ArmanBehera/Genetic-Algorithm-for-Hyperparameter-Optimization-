@@ -47,7 +47,7 @@ def file_contents(folder_path, filename):
             bodySubHeadings = list(genData[0][1].keys()) # Subheadings for the hypeparameters
             
             for i in range(len(bodySubHeadings) - 1):
-                if element['Count'] != 1:
+                if element['Generation Count'] != 1:
                     break
                 bodyHeadings.insert(2, 'Hyperparameter Configuration');
             
@@ -66,16 +66,16 @@ def file_contents(folder_path, filename):
             
             multiIndex = pd.MultiIndex.from_arrays([bodyHeadings, bodySubHeadings])
             
-            del element['Hyperparameter Configuration']
+            del element['Best Hyperparameter Configuration']
             headerDataFrame = pd.DataFrame(data=element, index=['Values'])
             bodyDataFrame = pd.DataFrame(data=genData, columns=multiIndex)
             
-            headerDataFrame.to_excel(writer, sheet_name=f"Sheet_{element['Count']}", startrow=0, index=True)
-            bodyDataFrame.to_excel(writer, sheet_name=f"Sheet_{element['Count']}", startrow=len(headerDataFrame) + 2)
+            headerDataFrame.to_excel(writer, sheet_name=f"Sheet_{element['Generation Count']}", startrow=0, index=True)
+            bodyDataFrame.to_excel(writer, sheet_name=f"Sheet_{element['Generation Count']}", startrow=len(headerDataFrame) + 2)
             
 
 def main():
-    file_contents('Iteration_11', 'Iteration_11_demo_report1');
+    file_contents('Iteration_13', 'Iteration_13_report');
 
 if __name__ == "__main__":
     main()

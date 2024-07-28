@@ -12,8 +12,11 @@ def _calculatePrecision(num):
 
 
 def _calculateBinaryLength(value: int):
-    
+    '''
+        Calculates the length of a binary value from an integer number
+    '''
     return len(f"{value:b}")
+
 
 def _convertIntToBinary(value: int, positive: bool, length: int):
     '''

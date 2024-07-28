@@ -1,6 +1,7 @@
 Model: <class 'sklearn.linear_model._coordinate_descent.ElasticNet'>
 Fitness Function: <function mean_absolute_error at 0x000002A06436F060>
-Objective: minGeneration Count: 1
+Objective: minGeneration
+Count: 1
 Highest Fitness: 322639.6770623298
 Lowest Fitness: 250722.06077155142
 Average Fitness: 285550.00524665107

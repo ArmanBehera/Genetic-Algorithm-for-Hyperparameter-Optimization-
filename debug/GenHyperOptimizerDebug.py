@@ -80,12 +80,15 @@ class GenHyperOptimizer:
             Single-point crossover
             Failed: Using this as the only operator causes loss of vital useful information in the chromosome
             Also does not lead to enough diversity
+            Working fine
         '''
 
         try:
             crossover_point = random.randrange(1, (len(p1) - 1))
         except ValueError:
             crossover_point = 1
+        
+        print(crossover_point)
         
         c1 = p1[:crossover_point] + p2[crossover_point:]
         c2 = p2[:crossover_point] + p1[crossover_point:]
@@ -96,23 +99,26 @@ class GenHyperOptimizer:
     def _uniform_crossover(self, p1, p2):
         '''
             Uniform crossover
-            Failed: Not enough diversity as most of the bits are similar
+            Failed: Loss of important information too fast
+            Working fine
         '''
         c1 = ""
         c2 = ""
         for i in range(len(p1)):
             
             if flip(p=self._UNIFORM_CROSSOVER_RATE):
+                print("p1")
                 c1 += p1[i]
                 c2 += p2[i]
             else:
+                print("p2")
                 c1 += p2[i]
                 c2 += p1[i]
 
         return c1, c2
     
     
-    def _hybrid_crossover(self, p1, p2):
+    def _hybrid_crossover(self, p1, p2, info):
         '''
             Here each hyperparameter value will go through a crossover
             Taken inspiration from value-encoding crossover and multi-point crossover
@@ -122,7 +128,7 @@ class GenHyperOptimizer:
         if flip(self._CROSSOVER_RATE):
             c1 = ""
             c2 = ""
-            for value in self._info.values():
+            for value in info.values():
             
                 length = value[1]
                 end = start + length
@@ -130,7 +136,11 @@ class GenHyperOptimizer:
                 p2_hp = p2[start: end]
                 start = end
                 
+                print(f"p1_hp: {p1_hp}")
+                print(f"p2_hp: {p2_hp}")
                 gc1, gc2 = self._single_point_crossover(p1_hp, p2_hp)
+                print(f"gc1: {gc1}")
+                print(f"gc2: {gc2}")
                 c1 += gc1
                 c2 += gc2
                 
@@ -177,42 +187,45 @@ class GenHyperOptimizer:
                 return ValueError("The value for cost function can only be max and min")
             
             length = len(generationData)
-            interSum = 0 # Intermediate sum used in the roulette wheel selection
+            interSum = 0 # Intermediate sum used for selecting parents
             for i in range(length):
                 probability = (alpha_rank + ((float(i) / (length - 1)) * (beta_rank - alpha_rank))) / length # Formula is defined in the page 2 of the paper
-                generationData[i].append(probability) # Do I need to include the probability of each individual being selected?
+                generationData[i].append(probability)
                 interSum += probability
                 generationData[i].append(interSum)
         
-        p1 = generateRandomFloat(0.0, sum_probability, precision=5)
-        p2 = generateRandomFloat(0.0, sum_probability, precision=5)
+        p1_ranking = generateRandomFloat(0.0, sum_probability, precision=5)
+        p2_ranking = generateRandomFloat(0.0, sum_probability, precision=5)
         
         p1_notfound = True
         p2_notfound = True
         
         index = 0
         
+        print(f"p1_ranking: {p1_ranking}")
+        print(f"p2_ranking: {p2_ranking}")
+        
         while (p1_notfound or p2_notfound) and index < self._MAX_POP:
             current = generationData[index][4]
                 
             if p1_notfound:
-                if p1 < current:
-                    p1 = generationData[index]
+                if p1_ranking < current:
+                    p1_ranking = generationData[index]
                     p1_notfound = False
             
             if p2_notfound:
-                if p2 < current:
-                    p2 = generationData[index]
+                if p2_ranking < current:
+                    p2_ranking = generationData[index]
                     p2_notfound = False
             
             index += 1
         
         # If the list is not sorted, return the sorted list
         if not sort:
-            return generationData, p1, p2
+            return generationData, p1_ranking, p2_ranking
         
         if sort:
-            return p1, p2
+            return p1_ranking, p2_ranking
         
     
     def _printGenerationReport(self, generation, filename):
@@ -276,7 +289,6 @@ class GenHyperOptimizer:
     
     
     def _calculateFitness(self, hyperparameters, X_train, y_train, X_test, y_test):
-        # Can make it more efficient 
         model = self._model(
             **hyperparameters
         )
@@ -382,7 +394,7 @@ class GenHyperOptimizer:
         c_decoded = decode(chromosome=c, info=self._info, **self._stringHyper)
         
         for key in self._stringHyper.keys():
-            if c_decoded[key] == "Invalid_data!":  # This is set in the function, decode() of services
+            if c_decoded[key] == "Invalid_data!": # This is set in the function, decode() of services
                 if flip(0.5):
                     c_decoded[key] = p1[1][key]
                 else:
