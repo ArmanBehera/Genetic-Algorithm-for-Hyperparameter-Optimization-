@@ -3,6 +3,7 @@ import random
 from services import encode, decode, getInfo, flip, generateRandomFloat
 import time
 import os
+import math
 
 class GenHyperOptimizer:
     '''
@@ -12,8 +13,11 @@ class GenHyperOptimizer:
     # Arbitrary values given, to be refined
     _CROSSOVER_RATE = 1.0
     _MUTATION_RATE = 0.05
-    _MAX_POP = 30
     _UNIFORM_CROSSOVER_RATE = 0.5
+    _ELITISM_RATE = 0.04
+    
+    _MAX_POP = 30
+    _ELITISM_POP = 2
     _MAX_GEN = 10
     
     _sum_fitness = 0
@@ -35,7 +39,7 @@ class GenHyperOptimizer:
     # Can implement the method elitist selection, niche and speciation
     
     # Initializes the optimizer, giving the required values
-    def __init__(self, model=None, search_space=None, fitnessFunction=None, objective=None, max_pop=30, max_gen=10, iteration_number=1):
+    def __init__(self, model=None, search_space=None, fitnessFunction=None, objective=None, max_pop=30, max_gen=10, elitism_rate=0.04, iteration_number=1):
         '''
             model: A machine learning model defined in scikit-learn
             hyperparameters: A dictionary specifying the hyperparameters to be optimized for the model. Format is given belw
@@ -64,6 +68,9 @@ class GenHyperOptimizer:
             if objective != "min" or objective != "max":
                 raise ValueError("Cost must be given as min or max to evaluate the value of fitness function.")
         
+        if max_pop % 2 == 1:
+            raise ValueError("Maximum population can only be even for correct operation of crossover operator.")
+        
         # All values have been correctly passed.
         self._model = model
         self._search_space = search_space
@@ -72,8 +79,18 @@ class GenHyperOptimizer:
         self._info = getInfo(hyperparameters=search_space)
         self._MAX_POP = max_pop
         self._MAX_GEN = max_gen
+        self._ELITISM_RATE = elitism_rate
         self._iteration_number = iteration_number
-    
+
+        # Number of individuals that are to be directly shifted to the next gen without the influence of operators
+        ELITISM_POP = math.ceil(elitism_rate * max_pop)
+        
+        # If the number of individuals is odd, it reduces 1 to make it even
+        if (ELITISM_POP % 2 == 1):
+            ELITISM_POP -= 1
+            
+        self._ELITISM_POP = ELITISM_POP
+        print(f"ELITISM_POP: {ELITISM_POP}")
     
     def _single_point_crossover(self, p1, p2):
         '''
@@ -96,7 +113,7 @@ class GenHyperOptimizer:
     def _uniform_crossover(self, p1, p2):
         '''
             Uniform crossover
-            Failed: Not enough diversity as most of the bits are similar
+            Failed: Losses vital information very quickly
         '''
         c1 = ""
         c2 = ""
@@ -217,8 +234,6 @@ class GenHyperOptimizer:
     
     def _printGenerationReport(self, generation, filename):
         # To generate a report based on the statistics calculated
-        print(f"Generation: {generation}")
-        print(f"Filename: {filename}")
         self._calculateStatistics(generation=generation)
         
         if not filename.endswith('.txt'):
@@ -409,6 +424,7 @@ class GenHyperOptimizer:
         c = encode(c_decoded, info=self._info, **self._stringHyper)
         return c, c_decoded
     
+    
     # Stores the optimized parameters
     def optimize(self, X_train=None, y_train=None, X_test=None, y_test=None, alpha_rank=0.4, beta_rank=1.6):
         
@@ -444,40 +460,44 @@ class GenHyperOptimizer:
                 self._odd_generation.clear()
                 nextGen = self._even_generation
         
+            # When sort = False, it returns the sorted array
             currentGen, p1, p2 =self._rank_selection(generationData=currentGen, sort=False, alpha_rank=alpha_rank, beta_rank=beta_rank)
             
-            for index in range(int(self._MAX_POP / 2)):
-                #print(f"p1: {p1[0]}")
-                #print(f"p2: {p2[0]}")
+            # Transferring the best individuals into the next generation
+            # In this elitism method, even the elitist individuals are open tom mating
+            for i in range(1, self._ELITISM_POP + 1):
+                print(currentGen[-i])
+                nextGen.append((currentGen[-i][0:3])) # Keeps the chromosome, the hyperparameter configuration and the fitness score. Removes the ranking and intermediate sum
+            
+            for index in range(int((self._MAX_POP - self._ELITISM_POP) / 2)):
+                
                 c1, c2 = self._hybrid_crossover(p1=p1[0], p2=p2[0])
                 c1 = self._mutation(c1)
                 c2 = self._mutation(c2)
-                #print(f"c1: {c1}")
-                #print(f"c2: {c2}")
+                
                 c1, c1_decoded = self._decodeHyperparameters(c=c1, p1=p1, p2=p2)
                 c2, c2_decoded = self._decodeHyperparameters(c=c2, p1=p1, p2=p2)
                 
-                #print(f"c1_decoded: {c1_decoded}")
-                #print(f"c2_decoded: {c2_decoded}")
+                
                 c1_fitness = self._calculateFitness(hyperparameters=c1_decoded, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test)
                 c2_fitness = self._calculateFitness(hyperparameters=c2_decoded, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test)
-                #print(f"c1_fitness: {c1_fitness}")
-                #print(f"c2_fitness: {c2_fitness}")
+                
                 nextGen.append([c1,c1_decoded, c1_fitness])
                 nextGen.append([c2, c2_decoded, c2_fitness])
                 
                 p1, p2 =self._rank_selection(generationData=currentGen, sort=True, alpha_rank=alpha_rank, beta_rank=beta_rank)
+                # print(f"p1, p2: {p1} {p2}")
                 
             filename = f"Iteration_{self._iteration_number}/Gen_{self._gen_count}.txt"
             self._printGenerationReport(currentGen, filename)
             print(f"Number of generations completed: {self._gen_count}\nStats saved in: {filename}")
             
             self._gen_count += 1
-            print(f"currentGen: {currentGen}")
-            print(f"Odd-Generation: {self._odd_generation}")
-            print(f"Even-Generation: {self._even_generation}")
-            print(f"Length odd: {len(self._odd_generation)}")
-            print(f"Length even: {len(self._even_generation)}")
+            #print(f"currentGen: {currentGen}")
+            #print(f"Odd-Generation: {self._odd_generation}")
+            #print(f"Even-Generation: {self._even_generation}")
+            #print(f"Length odd: {len(self._odd_generation)}")
+            #print(f"Length even: {len(self._even_generation)}")
             
         print(f"Best hyperparameters found: {self._optimized_parameters}")
         print(f"Accuracy: {self._optimized_accuracy}")

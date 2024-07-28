@@ -1,5 +1,5 @@
 import services
-from debug.GenHyperOptimizerDebug import GenHyperOptimizer
+from GenHyperOptimizerDebug import GenHyperOptimizer
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import ensemble

@@ -1,0 +1,10 @@
+Model: <class 'sklearn.linear_model._coordinate_descent.ElasticNet'>
+Fitness Function: <function root_mean_squared_error at 0x0000021EDE66F560>
+Objective: min
+Generation Count: 1
+Highest Fitness: 513150.3688087497
+Lowest Fitness: 408103.0826236827
+Average Fitness: 453255.4394372883
+Best Chromosome: 1001010011001101001101010101
+Best Hyperparameter Configuration: {'alpha': 0.595, 'l1_ratio': 0.3, 'fit_intercept': False, 'max_iter': 2474, 'selection': 'random'}
+Generation Data: [['1001010011001101001101010101', {'alpha': 0.595, 'l1_ratio': 0.3, 'fit_intercept': False, 'max_iter': 2474, 'selection': 'random'}, 513150.3688087497, 0.06666666666666667, 0.06666666666666667], ['1110111001001011001011111111', {'alpha': 0.953, 'l1_ratio': 0.2, 'fit_intercept': True, 'max_iter': 2431, 'selection': 'random'}, 508950.9335892459, 0.10666666666666669, 0.17333333333333334], ['1100001111100011100100000110', {'alpha': 0.783, 'l1_ratio': 0.8, 'fit_intercept': True, 'max_iter': 3203, 'selection': 'cyclic'}, 466303.5397759059, 0.1466666666666667, 0.32000000000000006], ['0011001100100110110011111011', {'alpha': 0.204, 'l1_ratio': 0.9, 'fit_intercept': True, 'max_iter': 1661, 'selection': 'random'}, 414416.825734812, 0.18666666666666668, 0.5066666666666667], ['0000100101011011010100110001', {'alpha': 0.037, 'l1_ratio': 0.6, 'fit_intercept': True, 'max_iter': 2712, 'selection': 'random'}, 408607.8860913342, 0.2266666666666667, 0.7333333333333334], ['0000001010000000111001010110', {'alpha': 0.01, 'l1_ratio': 0.0, 'fit_intercept': False, 'max_iter': 1835, 'selection': 'cyclic'}, 408103.0826236827, 0.26666666666666666, 1.0]]
