@@ -5,16 +5,16 @@ binaryStr = "010101010111101"
 intNum = 2314
 
 hyperparametersRange = {
-    "alpha": [0.001, 1.000],
-    "l1_ratio": [0.00, 1.00],
+    "alpha": [-0.101, 1.000],
+    "l1_ratio": [-0.51, 1.00],
     "fit_intercept": [True, False],
     "max_iter": [-1500, 4000],
     "selection": ['cyclic', 'random']
 }
 
 hyperparameters = {
-    "alpha": 0.001,
-    "l1_ratio": 0.11,
+    "alpha": -0.001,
+    "l1_ratio": -0.11,
     "fit_intercept": True,
     "max_iter": -1500,
     "selection": 'random'
