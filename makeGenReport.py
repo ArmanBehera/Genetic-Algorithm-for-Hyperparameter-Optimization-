@@ -75,7 +75,7 @@ def file_contents(folder_path, filename):
             
 
 def main():
-    file_contents('Iteration_13', 'Iteration_13_report');
+    file_contents('Iteration_1', 'Iteration_1_report');
 
 if __name__ == "__main__":
     main()

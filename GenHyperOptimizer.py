@@ -11,13 +11,13 @@ class GenHyperOptimizer:
     '''
     
     # Arbitrary values given, to be refined
-    _CROSSOVER_RATE = 1.0
-    _MUTATION_RATE = 0.05
+    _CROSSOVER_RATE = 0.7
+    _MUTATION_RATE = 0.03
     _UNIFORM_CROSSOVER_RATE = 0.5
     _ELITISM_RATE = 0.04
     
-    _MAX_POP = 30
-    _ELITISM_POP = 2
+    _MAX_POP = 80
+    _ELITISM_POP = 4
     _MAX_GEN = 10
     
     _sum_fitness = 0
@@ -39,7 +39,7 @@ class GenHyperOptimizer:
     # Can implement the method elitist selection, niche and speciation
     
     # Initializes the optimizer, giving the required values
-    def __init__(self, model=None, search_space=None, fitnessFunction=None, objective=None, max_pop=30, max_gen=10, elitism_rate=0.04, iteration_number=1):
+    def __init__(self, model=None, search_space=None, scoring=None, objective=None, max_pop=30, max_gen=10, elitism_rate=0.04, iteration_number=1):
         '''
             model: A machine learning model defined in scikit-learn
             hyperparameters: A dictionary specifying the hyperparameters to be optimized for the model. Format is given belw
@@ -61,7 +61,7 @@ class GenHyperOptimizer:
         if not search_space:
             raise ValueError("A list of hyperparameters to be optimized must be passed.")
         
-        if not fitnessFunction:
+        if not scoring:
             raise ValueError("A scoring metric must be passed.")
         
         if not objective:
@@ -74,7 +74,7 @@ class GenHyperOptimizer:
         # All values have been correctly passed.
         self._model = model
         self._search_space = search_space
-        self._fitnessFunction = fitnessFunction
+        self._scoring = scoring
         self._objective = objective
         self._info = getInfo(hyperparameters=search_space)
         self._MAX_POP = max_pop
@@ -90,7 +90,6 @@ class GenHyperOptimizer:
             ELITISM_POP -= 1
             
         self._ELITISM_POP = ELITISM_POP
-        print(f"ELITISM_POP: {ELITISM_POP}")
     
     def _single_point_crossover(self, p1, p2):
         '''
@@ -143,6 +142,8 @@ class GenHyperOptimizer:
             
                 length = value[1]
                 end = start + length
+                
+                # Each block contains a separate hyperparameter value
                 p1_hp = p1[start: end]
                 p2_hp = p2[start: end]
                 start = end
@@ -161,19 +162,16 @@ class GenHyperOptimizer:
         '''
             Thinking of bit-flip mutation but to look at other methods
         '''
-        # If the bit is to be changed
-        length = len(p1)
+        
+        for bitPosition in range(len(p1)):
+            if (flip(self._MUTATION_RATE)):
+                flippedBit = '0' if p1[bitPosition] == '1' else '1'
+                p1 = p1[:bitPosition] + flippedBit + p1[bitPosition + 1:]
 
-        if flip(length * self._MUTATION_RATE):
-            bitPosition = random.randrange(0, length)
-            
-            flippedBit = '0' if p1[bitPosition] == '1' else '1'
-            p1 = p1[:bitPosition] + flippedBit + p1[bitPosition + 1:]
-                
+        
         return p1
-
     
-    def _rank_selection(self, generationData, sort=False, alpha_rank=0.4, beta_rank=1.6):
+    def _rank_selection(self, generationData, alpha_rank, beta_rank, sort=False,):
         '''
             Rank-based selection. Ranking is based on the cost function given
             Follows the linear ranking described by John Grefenstette in his paper
@@ -246,13 +244,13 @@ class GenHyperOptimizer:
         
         statistics = (
             f"Model: {self._model}\n"
-            f"Fitness Function: {self._fitnessFunction}\n"
+            f"Fitness Function: {self._scoring}\n"
             f"Objective: {self._objective}\n"
             f"Generation Count: {self._gen_count}\n"
             f"Highest Fitness: {self._max_fitness}\n"
             f"Lowest Fitness: {self._min_fitness}\n"
             f"Average Fitness: {self._sum_fitness / float(self._MAX_POP)}\n"
-            f"Best Chromosome: {generation[0][0]}\n"
+            f"Best Chromosome: {generation[(self._MAX_POP - 1)][0]}\n"
             f"Best Hyperparameter Configuration: {generation[0][1]}\n"
             f"Generation Data: {generation}"
         )
@@ -298,7 +296,7 @@ class GenHyperOptimizer:
         
         model.fit(X_train, y_train)
         
-        return self._fitnessFunction(y_test, model.predict(X_test))
+        return self._scoring(y_test, model.predict(X_test))
     
     
     def _randomFillPopulation(self):
@@ -343,55 +341,17 @@ class GenHyperOptimizer:
             chromosome = encode(parameters=hyperparameters, info=self._info, **self._stringHyper)
             fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
             self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
-            #print(f"Chromsome: {chromosome}")
-            #print(f"Decoded Hyperparameters: {hyperparameters}")
-            #print(f"Fitness Score: {fitnessScore}")
+            print(f"Chromsome: {chromosome}")
+            print(f"Decoded Hyperparameters: {hyperparameters}")
+            print(f"Fitness Score: {fitnessScore}")
             
         self._optimized_accuracy = self._odd_generation[0][2]
     
     
-    def _uniformFillPopulation(self):
-        
-        for i in range(self._MAX_POP):
-            
-            hyperparameters = {}
-            for key, value in self._search_space.items():
-                datatype = self._info[key][0]
-                
-                if datatype == "int":
-                    lowerLimit = value[0]
-                    higherLimit = value[1]
-                    increase = (higherLimit - lowerLimit) / self._MAX_POP
-                    hyperparameters[key] = int(lowerLimit + (increase * i))
-                    
-                elif datatype == "float":
-                    lowerLimit = value[0]
-                    higherLimit = value[1]
-                    increase = (higherLimit - lowerLimit) / self._MAX_POP
-                    hyperparameters[key] = lowerLimit + (increase * i)
-                    
-                elif datatype == "str":
-                    self._stringHyper[key] = value
-                    length = self._info[key][2] 
-                    hyperparameters[key] = value[i % length]
-                    
-                elif datatype == "bool":
-                    if len(value) == 1:
-                        hyperparameters[key] = value[0]
-                    else:
-                        hyperparameters[key] = value[i % 2]
-                        
-            chromosome = encode(parameters=hyperparameters, info=self._info, **self._stringHyper)
-            fitnessScore = self._calculateFitness(hyperparameters=hyperparameters, X_train=self._X_train, y_train=self._y_train, X_test=self._X_test, y_test=self._y_test)
-            self._odd_generation.append([chromosome, hyperparameters, fitnessScore])
-            #print(f"Chromsome: {chromosome}")
-            #rint(f"Decoded Hyperparameters: {hyperparameters}")
-            #print(f"Fitness Score: {fitnessScore}")
-    
-    
     def _decodeHyperparameters(self, c, p1, p2):
         '''
-            Decodes parameters and checks for validity
+            Decodes chromosome into hypeparameters
+            Checks for validity by making sure that the values lie within the range provided by the user.
         '''
         
         c_decoded = decode(chromosome=c, info=self._info, **self._stringHyper)
@@ -425,11 +385,10 @@ class GenHyperOptimizer:
         return c, c_decoded
     
     
-    # Stores the optimized parameters
-    def optimize(self, X_train=None, y_train=None, X_test=None, y_test=None, alpha_rank=0.4, beta_rank=1.6):
-        
-        start = time.time()
-        
+    def optimize(self, X_train=None, y_train=None, X_test=None, y_test=None, alpha_rank=0.3, beta_rank=1.7):
+        '''
+            Runs the GA in the appropriate order 
+        '''
         try: 
             if not X_train or y_train or X_test or y_test:
                 raise ValueError("Proper training and testing datasets have to be provided.")
@@ -466,7 +425,6 @@ class GenHyperOptimizer:
             # Transferring the best individuals into the next generation
             # In this elitism method, even the elitist individuals are open tom mating
             for i in range(1, self._ELITISM_POP + 1):
-                print(currentGen[-i])
                 nextGen.append((currentGen[-i][0:3])) # Keeps the chromosome, the hyperparameter configuration and the fitness score. Removes the ranking and intermediate sum
             
             for index in range(int((self._MAX_POP - self._ELITISM_POP) / 2)):
@@ -501,7 +459,3 @@ class GenHyperOptimizer:
             
         print(f"Best hyperparameters found: {self._optimized_parameters}")
         print(f"Accuracy: {self._optimized_accuracy}")
-
-        end = time.time()
-        
-        print(f"\nTime Taken: {end - start}")

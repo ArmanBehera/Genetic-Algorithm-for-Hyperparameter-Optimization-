@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
     
     
-    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, search_space=dictionary, fitnessFunction=mean_absolute_error, objective="min")
+    obj = GenHyperOptimizer(model=ensemble.GradientBoostingRegressor, search_space=dictionary, scoring=mean_absolute_error, objective="min")
     
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']

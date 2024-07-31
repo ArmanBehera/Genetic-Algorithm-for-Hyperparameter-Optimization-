@@ -18,7 +18,7 @@ if __name__ == "__main__":
         "selection": ['cyclic', 'random']
     }
     
-    obj = GenHyperOptimizer(model=linear_model.ElasticNet, search_space=dictionary, fitnessFunction=root_mean_squared_error, objective="min", max_pop=10, max_gen=12, iteration_number=14)
+    obj = GenHyperOptimizer(model=linear_model.ElasticNet, search_space=dictionary, scoring=root_mean_squared_error, objective="min", max_pop=10, max_gen=12, iteration_number=14)
     
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']
