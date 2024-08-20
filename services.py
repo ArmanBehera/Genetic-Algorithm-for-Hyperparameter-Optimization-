@@ -7,8 +7,12 @@ def _calculatePrecision(num):
         Calculates the precision (number of decimal digits) for a floating point number
     '''
     string = str(num).split('.')
+    print(f"string: {string}")
     
-    return len(string[1])
+    try:
+        return len(string[1])
+    except:
+        return 0
 
 
 def _calculateBinaryLength(value: int):
@@ -98,6 +102,7 @@ def getInfo(hyperparameters: dict):
         else:
             return ValueError("Incorrect datatype passed in the values for hyperparameters.")
         
+    print(f"Info: {info}")
     return info
 
 

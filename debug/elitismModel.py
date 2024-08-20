@@ -11,7 +11,6 @@ from sklearn.datasets import fetch_california_housing
 
 if __name__ == "__main__":
     
-        
     df = pd.read_csv('datasets/Melbourne_housing_FULL.csv')
     del df['Address']
     del df['Method']

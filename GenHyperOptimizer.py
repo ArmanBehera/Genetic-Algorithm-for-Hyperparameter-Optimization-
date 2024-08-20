@@ -459,3 +459,5 @@ class GenHyperOptimizer:
             
         print(f"Best hyperparameters found: {self._optimized_parameters}")
         print(f"Accuracy: {self._optimized_accuracy}")
+        
+        return self._optimized_parameters
