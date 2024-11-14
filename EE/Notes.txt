@@ -1,0 +1,55 @@
+Iteration 5, which had a really big search space resulted in a weird generational reports. 
+    - Every alternate generation, the same lowest fitness was discovered.
+    - Possible reason could be premature convergence leading to repetitions. 
+    - To check at the dataset closely to discover more results.
+
+More possible reasons:
+The pattern of the same fitness score with the same chromosome appearing in every alternate generation could be due to several reasons. Here are the possible reasons that might explain this behavior:
+
+### 1. **Mutation Rate and Genetic Diversity**
+- **Low Mutation Rate**: If the mutation rate is too low, there's insufficient genetic diversity introduced in each generation, leading to repeated occurrences of the same chromosomes.
+- **Convergence**: The population might be converging to local optima quickly, resulting in the same individuals being selected and propagated.
+
+### 2. **Selection Pressure**
+- **High Selection Pressure**: Strong selection pressure can cause the best individuals to dominate the population, leading to reduced diversity and repetition of the same individuals.
+- **Elitism**: If elitism is used (preserving the best individuals across generations), the same elite chromosomes might appear repeatedly.
+
+### 3. **Crossover Operation**
+- **Lack of Diversity in Crossover**: If the crossover operation doesn't produce enough variety, it can lead to the same chromosomes being produced repeatedly.
+- **Repeated Parents**: If the same parents are selected for crossover, the offspring might be identical to the parents, causing repetition.
+
+### 4. **Initial Population and Seeding**
+- **Initial Population**: If the initial population has limited diversity, it can lead to repeated patterns as the algorithm might not have enough diverse individuals to work with.
+- **Seeding**: If the initial population or subsequent generations are seeded with the same chromosomes, it can cause repetition.
+
+### 5. **Fitness Landscape**
+- **Flat Fitness Landscape**: If the fitness landscape is relatively flat with many chromosomes having the same fitness score, it can result in repeated occurrences of the same fitness scores and chromosomes.
+- **Plateaus**: The algorithm might be stuck on a plateau in the fitness landscape, causing repeated patterns.
+
+### 6. **Implementation Bugs**
+- **Cloning**: There could be an inadvertent cloning of individuals in the population.
+- **Incorrect Fitness Evaluation**: There might be an error in the fitness evaluation function leading to the same fitness scores being assigned repeatedly.
+- **Improper Population Update**: The population update mechanism might be flawed, not properly introducing new individuals.
+
+### 7. **Genetic Drift**
+- **Genetic Drift**: In small populations, genetic drift can cause certain individuals to dominate and appear repeatedly due to random sampling effects.
+
+### Example Code Review
+
+To diagnose the problem, review the key components of your genetic algorithm: mutation, crossover, selection, and population update mechanisms. Here are some points to check in your code:
+
+1. **Mutation Function**:
+   - Ensure the mutation rate is appropriate and mutations introduce sufficient diversity.
+   - Verify that the mutation is applied correctly and not skipping any generations unintentionally.
+
+2. **Selection Function**:
+   - Check if selection pressure is too high or low.
+   - Ensure a variety of individuals are being selected, not just the same ones repeatedly.
+
+3. **Crossover Function**:
+   - Ensure crossover introduces enough diversity and isn't just creating clones of the parents.
+   - Check if the same parents are being selected repeatedly.
+
+4. **Population Update**:
+   - Verify the population is updated correctly each generation with the new offspring.
+   - Ensure elitism isn't causing the same individuals to persist excessively.

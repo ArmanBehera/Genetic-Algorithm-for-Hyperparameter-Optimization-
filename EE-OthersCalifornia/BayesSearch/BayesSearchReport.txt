@@ -1,0 +1,77 @@
+Iteration_1_2
+Time taken for Bayes Search to optimize model: 6955.3950 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.1, 'loss': 'huber', 'max_depth': 6, 'max_features': 0.8323604051864683, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 150})
+Accuracy on Training dataset: 0.37354673350636797
+Accuracy on Testing dataset: 0.4447750221821814
+BayesSearch Settings: n_iter: 150, cv=3, n_jobs=1
+
+Iteration_4_2
+Time taken for Bayes Search to optimize model: 12539.7213 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.035618898258865515, 'loss': 'huber', 'max_depth': 7, 'max_features': 1.0, 'min_samples_leaf': 19, 'min_samples_split': 9, 'n_estimators': 164})
+Accuracy on Training dataset: 0.3777270116890003
+Accuracy on Testing dataset: 0.4528266501932296
+BayesSearch Settings: n_iter: 150, cv=3, n_jobs=1
+
+Iteration_2_2
+Time taken for Bayes Search to optimize model: 13810.1319 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.1, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.7407299061218037, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 150})
+Accuracy on Training dataset: 0.3970571586895016
+Accuracy on Testing dataset: 0.45339203981880677
+BayesSearch Settings: n_iter: 300, cv=3, n_jobs=1
+
+Iteration_3_2
+Time taken for Bayes Search to optimize model: 46043.3005 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.1, 'loss': 'huber', 'max_depth': 6, 'max_features': 0.7915860972350447, 'min_samples_leaf': 10, 'min_samples_split': 10, 'n_estimators': 150})
+Accuracy on Training dataset: 0.3683776582613317
+Accuracy on Testing dataset: 0.4503393456772914
+BayesSearch Settings: n_iter: 500, cv=3, n_jobs=1
+
+Iteration_5_2
+Time taken for Bayes Search to optimize model: 51715.9442 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 7, 'max_features': 0.6493686349702137, 'min_samples_leaf': 16, 'min_samples_split': 2, 'n_estimators': 579})
+Accuracy on Training dataset: 0.38118906651229767
+Accuracy on Testing dataset: 0.44339807189830227
+BayesSearch Settings: n_iter: 300, cv=3, n_jobs=1
+
+Iteration_6_2
+Time taken for Bayes Search to optimize model: 64774.2157 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.016116167848772858, 'loss': 'huber', 'max_depth': 7, 'max_features': 0.8202458853594707, 'min_samples_leaf': 17, 'min_samples_split': 20, 'n_estimators': 501})
+Accuracy on Training dataset: 0.3690936145239754
+Accuracy on Testing dataset: 0.45121555335172653
+BayesSearch Settings: n_iter: 500, cv=3, n_jobs=1
+Iteration_1
+Time taken for Bayes Search to optimize model: 5620.6578 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.1, 'loss': 'huber', 'max_depth': 6, 'max_features': 0.7678326957414269, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 150})
+Accuracy on Training dataset: 0.37255276622750555
+Accuracy on Testing dataset: 0.4536436000664988
+BayesSearch Settings: n_iter: 150, cv=3, n_jobs=1
+Iteration_4
+Time taken for Bayes Search to optimize model: 23594.0149 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6590489065259365, 'min_samples_leaf': 20, 'min_samples_split': 3, 'n_estimators': 586})
+Accuracy on Training dataset: 0.36623370058110083
+Accuracy on Testing dataset: 0.438988197494188
+BayesSearch Settings: n_iter: 150, cv=3, n_jobs=1
+Iteration_2
+Time taken for Bayes Search to optimize model: 26175.4708 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.1, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8031004282998212, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 150})
+Accuracy on Training dataset: 0.3946086215151068
+Accuracy on Testing dataset: 0.4550617284258233
+BayesSearch Settings: n_iter: 300, cv=3, n_jobs=1
+Iteration_3
+Time taken for Bayes Search to optimize model: 37037.5801 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.10279649517077301, 'loss': 'huber', 'max_depth': 6, 'max_features': 0.6107124916939768, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 158})
+Accuracy on Training dataset: 0.37109435022201354
+Accuracy on Testing dataset: 0.4565011421018473
+BayesSearch Settings: n_iter: 500, cv=3, n_jobs=1
+Iteration_5
+Time taken for Bayes Search to optimize model: 52110.7416 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6299145638761926, 'min_samples_leaf': 20, 'min_samples_split': 19, 'n_estimators': 532})
+Accuracy on Training dataset: 0.3654076267470524
+Accuracy on Testing dataset: 0.4484476466475099
+BayesSearch Settings: n_iter: 300, cv=3, n_jobs=1
+Iteration_6
+Time taken for Bayes Search to optimize model: 74309.7874 seconds
+Bayes Search Best Parameters: OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.5682663212094913, 'min_samples_leaf': 20, 'min_samples_split': 15, 'n_estimators': 515})
+Accuracy on Training dataset: 0.3648370637709821
+Accuracy on Testing dataset: 0.4461476774364231
+BayesSearch Settings: n_iter: 500, cv=3, n_jobs=1

@@ -1,0 +1,370 @@
+mean_fit_time: [ 14.05012131   1.68766689   7.4368364   14.02695576  35.90272824
+  43.7491684   52.4096535   17.9565088   20.50700736  34.66899498
+  15.36134871   4.14793317   2.19036452   7.4480923    0.73664212
+  11.16511059   8.07758681  70.89331237   4.70426877 118.45591625
+   2.42440526  19.95358682   4.43194024   3.21032842  42.21130943
+  31.85471956  36.39257415  21.91087588  36.82709233  59.89253497
+  10.63639959 166.53382937  10.96106029 101.86080241  35.80730653
+  37.26034149 123.97417625  88.29179772  23.46950801  60.9562881
+ 140.68279449  11.07599616 234.73421407  45.98125982  27.48119235
+  22.27257156  20.52792684  20.70824766  67.711809    26.34660951
+  10.88328679  49.97108412  27.45195262  29.2852459   17.18052348
+  56.21790115  57.76378457  79.49170907  44.23878233  19.76354122
+  66.99478745  62.37092598  79.73594117  40.78442788  15.24099835
+  51.06134049  69.69503999  16.48474216  83.64435244  42.90242513
+  51.47285255  34.49785527  36.74361531  41.11090803  23.66412083
+  42.10627174  46.97427742  98.6157736   29.97300903  68.60259398
+  26.44663278  29.84564312  65.49314046  67.50566117  35.52635749
+   8.20139313   9.81578692  37.41546559  28.38955577   8.63080057
+  68.70643775   2.09712863  45.57489498   6.38634348  29.73286748
+  16.99224083  44.60035896   4.67057379  19.97873354  29.87104456
+  78.72244684  15.43121322  11.20063337  58.54812574  39.56956577
+  31.79322616  30.1713868   55.85002375  40.77087665  19.7080737
+  25.46188617  46.31253592  34.40980649  69.5281299   71.79134409
+  40.8611784   65.67864021  44.13015501  45.17800617  29.7446235
+  78.18322841  40.7931056   32.49744558  38.54754965  55.47508645
+  38.05814354  47.71789622  18.74097323  57.17309976  49.27826373
+  18.6029524   34.22652086  32.26575319  47.56049776  19.26456992
+  83.06143657  22.96195245  31.71984816  33.42771649  39.55081582
+  45.14205146  40.21431684  43.06291986  45.12722127  31.25355268
+  48.87781072  49.80703346  21.39333669  65.78021463  33.40963833]
+std_fit_time: [1.37978329e-01 1.01932413e-02 5.60954417e-02 9.04030214e-02
+ 2.18383049e-01 1.42820482e-01 2.01283828e-01 1.86760790e-01
+ 4.73740603e-02 3.64872500e-01 5.60201129e-01 4.97975184e-01
+ 1.92769311e-02 1.39478549e+00 2.60590318e-02 9.09385788e-01
+ 4.11596620e-01 7.98277450e+00 3.34182975e-02 1.63434554e+01
+ 4.59052046e-01 3.80323401e+00 1.42268507e+00 4.10021166e-01
+ 8.03792417e+00 4.12574693e+00 2.61354669e+00 3.57706954e+00
+ 6.78442137e+00 6.07846705e-01 1.06952704e+00 1.92106785e+01
+ 1.37791357e+00 1.25955473e+01 1.63698490e+00 3.54718908e+00
+ 1.81286162e+01 1.30343467e+01 6.43752769e+00 7.90583224e+00
+ 1.66245261e+01 2.36688507e+00 1.82183561e+01 8.80845624e+00
+ 5.75521990e+00 5.38193614e-01 7.45903694e+00 1.67649812e+00
+ 1.26261193e+01 3.17439760e+00 1.85694574e+00 1.28727097e+01
+ 1.61640462e+01 1.22294593e+01 1.52930096e+00 1.45181224e+01
+ 5.86665802e+00 4.33278637e+00 2.24198152e+01 1.17189910e+01
+ 5.47085936e+00 1.51886263e+01 2.51438206e+01 7.33889394e+00
+ 6.05841547e-01 1.09580482e+01 1.65651009e+01 1.43425665e+00
+ 3.31976258e+01 2.81193300e+01 1.98055869e+01 6.19100945e+00
+ 3.53157542e+00 2.58262664e+01 1.02988400e+01 1.74367456e+01
+ 1.54134858e+01 2.41201977e+01 1.82218179e+01 1.78100735e+01
+ 1.10276463e+01 2.20677017e+00 2.70751745e+01 3.13859992e+01
+ 1.45533426e+00 3.97373137e-01 1.08652404e+00 1.10913844e+01
+ 1.16760887e+01 8.60900653e-01 2.32740639e+01 8.25098104e-02
+ 2.09270081e+01 2.86601089e+00 7.20129588e+00 1.39911760e+00
+ 1.43535487e+01 2.84607858e-01 8.23803806e+00 1.25039575e+01
+ 3.32077176e+01 2.41402756e+00 1.31399520e+00 1.87046204e+01
+ 2.45416457e+01 2.13179544e+00 4.02119140e+00 3.58861018e+01
+ 2.30892172e+01 2.39422395e+00 5.32269964e+00 2.27267472e+01
+ 1.77054456e+01 2.58697656e+01 3.01946147e+01 2.26652777e+01
+ 2.64504284e+01 1.65568359e+01 1.54699764e+01 9.26795804e+00
+ 1.46349779e+01 5.01386642e+00 1.53152547e+01 1.72553908e+01
+ 2.50344445e+01 1.36938526e+01 1.21337724e+01 1.88787341e+00
+ 2.33571537e+01 1.58567296e+01 2.91323519e+00 1.54077027e+01
+ 1.25135063e+01 2.08435179e+01 1.33622571e+00 2.28601886e+01
+ 1.77062692e+00 1.26526189e+01 5.45122360e+00 1.00340603e+01
+ 1.45252560e+01 1.56450807e+01 1.49874471e+01 1.79909170e+01
+ 1.53395762e+01 1.82406144e+01 3.96617287e+00 2.90139646e+00
+ 2.20574299e+01 1.15374131e+01]
+mean_score_time: [0.07298056 0.0364391  0.04315122 0.08519069 0.10978699 0.18546128
+ 0.2043728  0.10334977 0.0781436  0.09349314 0.04688263 0.0701232
+ 0.01041563 0.15623315 0.01544595 0.05207864 0.13626305 0.2665085
+ 0.05728555 0.33848103 0.04167525 0.03124626 0.06319078 0.01541773
+ 0.12871226 0.25736507 0.20381037 0.07271822 0.21372859 0.54423873
+ 0.04166285 0.21911955 0.33385396 0.50073592 0.15169501 0.19283032
+ 0.17256133 0.26340278 0.06512388 0.38100266 0.60950462 0.02260494
+ 0.19403871 0.18467633 0.1064024  0.05728523 0.14288624 0.25555913
+ 0.170796   0.15695588 0.04538417 0.2242589  0.18772356 0.13299998
+ 0.06894795 0.16114918 0.35356585 0.45359119 0.1428419  0.02118945
+ 0.39227668 0.21148976 0.57590135 0.20547509 0.05724835 0.21395008
+ 0.46795273 0.06269026 0.23693474 0.09666316 0.18832461 0.17452192
+ 0.19085487 0.34045251 0.14652252 0.15223209 0.20085724 0.441329
+ 0.21911176 0.25276629 0.05488364 0.13237007 0.31549533 0.17953777
+ 0.18571583 0.18778205 0.01562325 0.17449474 0.08839115 0.01962423
+ 0.16790565 0.         0.27228522 0.01562746 0.20237088 0.03643004
+ 0.1027116  0.01148478 0.05907623 0.02603952 0.15040795 0.06057668
+ 0.03645809 0.26922051 0.11647232 0.16854612 0.16995366 0.37755148
+ 0.23788699 0.10734733 0.21301508 0.12673688 0.19716668 0.31271752
+ 0.29757992 0.1274244  0.21215781 0.28447215 0.25627351 0.12981359
+ 0.49087882 0.30053886 0.11223515 0.27081545 0.42899569 0.29327941
+ 0.14566008 0.10615031 0.36651802 0.31483213 0.11048746 0.12720879
+ 0.1231424  0.51705464 0.08953094 0.35529939 0.05728817 0.18587597
+ 0.10841028 0.09374134 0.16283464 0.14776278 0.2422123  0.14864564
+ 0.2226723  0.27481461 0.18095215 0.11378694 0.37804604 0.14635952]
+std_score_time: [7.14231734e-03 7.37577391e-03 5.25857470e-03 1.00048751e-02
+ 5.93776322e-04 4.43688336e-03 2.02027887e-03 6.86542533e-03
+ 1.93897492e-05 3.48919723e-04 1.92278339e-05 1.07322736e-02
+ 7.36496510e-03 1.27568831e-02 2.83344474e-04 7.36479655e-03
+ 1.41612311e-02 3.72359159e-04 7.36490890e-03 1.25200699e-01
+ 7.37397225e-03 2.24783192e-07 1.27940846e-02 1.25053431e-02
+ 8.63674753e-03 7.55603507e-02 5.65976417e-02 1.48667340e-02
+ 2.74516728e-02 4.48250730e-01 7.36400976e-03 4.61313987e-02
+ 5.07269148e-02 2.54384156e-01 7.88048956e-03 4.09291964e-02
+ 1.23703571e-02 5.22715392e-02 2.41706944e-02 1.58678334e-01
+ 2.43926797e-01 9.87787282e-03 6.62637132e-03 2.21575003e-02
+ 9.27642445e-03 1.47300426e-02 3.18753155e-03 2.67188952e-02
+ 1.53113476e-03 3.45270548e-03 2.10076779e-03 1.53796051e-01
+ 1.88398739e-01 1.00529163e-01 3.12173841e-02 7.85876076e-03
+ 2.12216153e-01 1.59339934e-01 4.58411299e-03 5.18534674e-03
+ 2.99575838e-01 4.72422202e-02 2.76826539e-01 5.08663879e-02
+ 7.33589267e-03 5.46889456e-02 2.22579788e-01 2.23732331e-02
+ 4.31390044e-02 2.54864563e-02 3.45722797e-02 2.88707173e-02
+ 1.17343569e-02 2.65702773e-01 8.12971468e-02 6.52726378e-02
+ 2.38425149e-02 1.82575286e-01 1.44286908e-01 1.22320789e-01
+ 2.88248022e-02 1.93141305e-02 1.82830488e-01 3.83050279e-02
+ 2.56371412e-02 1.27047671e-02 2.97360213e-07 3.06559007e-02
+ 9.20779542e-02 8.35087565e-03 2.61154580e-02 0.00000000e+00
+ 1.72981794e-01 5.84436299e-06 1.80117243e-01 7.77066539e-03
+ 9.45880770e-02 8.22294877e-03 2.43403072e-03 7.36535960e-03
+ 8.99454397e-03 1.55695584e-02 7.36215638e-03 1.64167024e-01
+ 2.26734137e-02 2.01915042e-02 2.56663458e-02 1.81685514e-01
+ 1.86067753e-01 2.13809266e-02 1.57762907e-01 1.29938726e-02
+ 1.49527078e-01 1.47503992e-01 1.67825188e-01 9.89009634e-03
+ 2.02540603e-02 1.53243147e-01 8.23430722e-02 1.52682297e-02
+ 3.41096181e-01 1.19524788e-01 1.03307252e-02 1.15823637e-01
+ 2.85859034e-01 1.03976719e-01 5.58108081e-02 7.19129055e-03
+ 2.81441996e-01 1.67474790e-01 1.28548932e-02 1.31377059e-02
+ 9.10825561e-03 3.03349805e-01 5.26295444e-03 2.07265889e-01
+ 2.65582038e-02 9.87241981e-02 7.82966907e-02 2.55112355e-02
+ 9.85396328e-02 4.85443772e-02 1.01955076e-01 5.42404499e-02
+ 1.40016595e-01 1.11075020e-01 1.16125540e-01 8.32859685e-03
+ 2.30009774e-01 3.28077059e-02]
+param_learning_rate: [0.04131322199283016 0.27387193931625403 0.06131250359854229
+ 0.09070523197049153 0.1860032906133713 0.1350165295650517
+ 0.01046471220340507 0.06401695248909284 0.1738284748385008
+ 0.13879461386453443 0.01 0.01 0.01 0.3 0.01 0.01 0.01 0.3 0.01 0.01 0.3
+ 0.3 0.01 0.01 0.069211251276717 0.01 0.01 0.01 0.01 0.01 0.3 0.3 0.01 0.3
+ 0.01 0.01 0.06272243787133412 0.01 0.3 0.3 0.01 0.3 0.01 0.01 0.01 0.3
+ 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01
+ 0.10605013561007184 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01
+ 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.07188913024248468
+ 0.01 0.01 0.01 0.01 0.01 0.15381503130241325 0.01 0.06087320098753678
+ 0.07998849675431662 0.01 0.3 0.06765381857707368 0.3 0.01
+ 0.12783105816923684 0.07749570068343475 0.2260039990011338 0.01
+ 0.04787874934586275 0.01 0.01 0.1684527729373134 0.01 0.01 0.01 0.01 0.01
+ 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01
+ 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01
+ 0.02143430322603061 0.01 0.17962718928191632 0.01 0.057188381190078304
+ 0.02488631089823056 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01]
+param_loss: ['quantile' 'squared_error' 'quantile' 'quantile' 'huber' 'quantile'
+ 'huber' 'quantile' 'huber' 'huber' 'huber' 'squared_error'
+ 'squared_error' 'squared_error' 'huber' 'huber' 'squared_error'
+ 'squared_error' 'squared_error' 'huber' 'squared_error' 'huber'
+ 'squared_error' 'huber' 'squared_error' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'quantile' 'huber' 'squared_error' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'quantile' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'squared_error' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'squared_error' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'squared_error' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber' 'huber'
+ 'huber']
+param_max_depth: [12 21 12 26 46 35 21 35 22 32 5 50 5 50 5 5 50 50 5 50 50 5 5 5 15 35 38
+ 32 50 40 50 50 45 25 35 50 43 31 25 50 29 5 50 45 42 13 46 50 50 50 5 22
+ 5 5 5 50 50 50 11 5 50 50 50 50 5 50 50 5 42 50 50 50 39 24 5 5 30 50 30
+ 50 5 13 50 50 32 32 5 50 5 5 50 5 38 5 5 50 13 5 5 5 31 5 32 50 9 14 30
+ 11 10 9 9 9 9 50 50 10 50 9 9 9 39 9 9 9 50 10 9 9 50 9 9 9 9 50 8 50 5 9
+ 5 9 8 9 9 9 8 8 8 9 50 8]
+param_max_features: [0.3624333397934813 0.06752750709093264 0.3641505609110491
+ 0.6477022459015606 0.7147393172167816 0.9981362433914149
+ 0.6824122349778556 0.6282658346874107 0.6164077374532146
+ 0.7864325851378987 1.0 0.3542148204292919 1.0 0.05000000000000006 0.05
+ 0.8152095080591625 0.3994895263174411 0.6645093127290888
+ 0.4719397287737809 1.0 0.33093104750207936 1.0 0.2032767333547601
+ 0.8741893011949277 0.8420546098130419 0.05 0.05 0.05 0.05
+ 0.41631540617142265 1.0 1.0 0.15653068407605802 0.05 0.4982891744329923
+ 0.4494414808918529 1.0 0.6199322622765476 1.0 0.05 1.0 1.0 0.05
+ 0.959584364457961 0.590250287461224 1.0 0.05 0.4751763014424905
+ 0.5595185970916238 0.4814168228680743 0.9289561203727933 1.0 1.0 1.0 1.0
+ 0.518649470892029 0.5863609121438971 0.6144286080693306
+ 0.9976221715508241 1.0 0.5668046786306737 0.5938525729387618
+ 0.6042335708693429 0.5500650398994884 1.0 0.5577771316524006
+ 0.5527365959191048 1.0 0.453142002462739 1.0 0.6883146723129776
+ 0.5644702435163604 0.37282763677141895 0.44897745159405306
+ 0.8018298563328353 1.0 0.42870356770599083 0.7080657651375524
+ 0.496460881028694 0.7464016278683229 1.0 0.7478254720428196
+ 0.7591575347099071 0.9238240868904747 0.5346061259721143
+ 0.3137432399231064 1.0 0.7991477888975822 1.0 0.7706571185937957 1.0
+ 0.6371585905597685 0.22443610955045035 0.41929656965185835
+ 0.6273257517919836 0.9556125483207575 0.8758358313095355
+ 0.7757987605414915 0.8501192105423677 0.8630297590604795
+ 0.7239240835435724 0.8507211310439134 0.6858056724739374
+ 0.6395878730853559 0.6835818374485269 0.554297313849215
+ 0.2638803398868849 0.7841083495670876 0.6366784071933944
+ 0.6388842008758954 0.6280430318849287 0.6267777392048834
+ 0.6142730758798651 0.5665291231338162 0.5984059494205354
+ 0.5682524029823477 0.5814331594351602 0.6426595505952409
+ 0.6090385940180049 0.6121640295643933 0.7409033418670655
+ 0.6337792710727075 0.6281768209060508 0.633253868217572
+ 0.4926034226915183 0.6273959076153093 0.6189938633788944
+ 0.6223491718269012 0.5900626725614134 0.6065485798760388
+ 0.5940173425382874 0.6450801404400685 0.6528691267271145
+ 0.6050761043602958 0.6202710467628193 0.5959313856972089
+ 0.37013448671633203 0.6367245217606273 0.6726213107795599
+ 0.5994766540201915 0.6738008374284049 0.6597218262965502
+ 0.6585523121919067 0.663284469963354 0.6631973283704357
+ 0.6669032123012212 0.6696527690713066 0.6560183429154937
+ 0.45829240256527876 0.6590489065259365]
+param_min_samples_leaf: [3 10 9 16 20 13 5 12 19 6 2 18 20 2 2 2 18 12 3 7 20 2 20 20 2 20 14 20
+ 20 20 20 2 2 3 20 20 20 2 20 12 20 20 2 20 20 2 20 20 20 20 20 20 20 8 9
+ 20 20 20 20 20 20 20 20 20 20 20 20 2 20 20 20 20 20 20 13 12 20 20 20 20
+ 15 20 20 20 14 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+ 20 20 20 20 20 20 20 8 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20
+ 20 20 20 20 20 20 20 20 17 20 20 20 20 20 20 20 20 20 20 20 20]
+param_min_samples_split: [15 4 12 18 2 12 16 11 13 5 2 6 20 20 20 18 12 3 20 20 20 20 20 8 2 20 20
+ 20 20 2 2 2 20 6 20 20 2 20 2 9 20 20 2 18 20 20 2 20 20 20 11 20 20 20
+ 20 20 20 20 20 20 20 20 20 20 2 20 20 20 20 20 12 20 20 20 20 20 20 20 20
+ 20 20 20 20 8 20 20 20 20 20 20 20 11 20 9 20 20 20 20 20 20 20 20 20 13
+ 12 20 2 20 20 20 20 20 2 20 6 2 4 2 20 20 2 2 2 2 7 2 2 20 5 2 20 2 2 2
+ 13 6 2 2 6 2 15 20 20 20 16 2 17 20 4 3]
+param_n_estimators: [570 118 300 269 308 541 546 308 392 314 600 215 100 600 100 596 384 586
+ 600 600 100 600 600 100 600 587 456 233 565 600 100 241 600 600 469 466
+ 424 491 100 600 600 329 360 464 351 316 427 600 506 473 424 384 554 507
+ 600 469 490 502 492 484 483 520 530 501 483 485 484 600 600 265 466 451
+ 526 471 525 554 600 600 380 434 422 444 443 447 424 499 319 428 429 406
+ 440 100 353 295 600 100 368 194 600 487 457 600 100 439 600 600 471 600
+ 547 600 600 600 600 506 495 600 501 600 600 600 600 600 583 600 536 600
+ 579 583 487 578 576 580 578 473 584 473 600 584 600 575 577 580 581 579
+ 580 582 578 576 600 586]
+params: [OrderedDict({'learning_rate': 0.04131322199283016, 'loss': 'quantile', 'max_depth': 12, 'max_features': 0.3624333397934813, 'min_samples_leaf': 3, 'min_samples_split': 15, 'n_estimators': 570}), OrderedDict({'learning_rate': 0.27387193931625403, 'loss': 'squared_error', 'max_depth': 21, 'max_features': 0.06752750709093264, 'min_samples_leaf': 10, 'min_samples_split': 4, 'n_estimators': 118}), OrderedDict({'learning_rate': 0.06131250359854229, 'loss': 'quantile', 'max_depth': 12, 'max_features': 0.3641505609110491, 'min_samples_leaf': 9, 'min_samples_split': 12, 'n_estimators': 300}), OrderedDict({'learning_rate': 0.09070523197049153, 'loss': 'quantile', 'max_depth': 26, 'max_features': 0.6477022459015606, 'min_samples_leaf': 16, 'min_samples_split': 18, 'n_estimators': 269}), OrderedDict({'learning_rate': 0.1860032906133713, 'loss': 'huber', 'max_depth': 46, 'max_features': 0.7147393172167816, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 308}), OrderedDict({'learning_rate': 0.1350165295650517, 'loss': 'quantile', 'max_depth': 35, 'max_features': 0.9981362433914149, 'min_samples_leaf': 13, 'min_samples_split': 12, 'n_estimators': 541}), OrderedDict({'learning_rate': 0.01046471220340507, 'loss': 'huber', 'max_depth': 21, 'max_features': 0.6824122349778556, 'min_samples_leaf': 5, 'min_samples_split': 16, 'n_estimators': 546}), OrderedDict({'learning_rate': 0.06401695248909284, 'loss': 'quantile', 'max_depth': 35, 'max_features': 0.6282658346874107, 'min_samples_leaf': 12, 'min_samples_split': 11, 'n_estimators': 308}), OrderedDict({'learning_rate': 0.1738284748385008, 'loss': 'huber', 'max_depth': 22, 'max_features': 0.6164077374532146, 'min_samples_leaf': 19, 'min_samples_split': 13, 'n_estimators': 392}), OrderedDict({'learning_rate': 0.13879461386453443, 'loss': 'huber', 'max_depth': 32, 'max_features': 0.7864325851378987, 'min_samples_leaf': 6, 'min_samples_split': 5, 'n_estimators': 314}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.3542148204292919, 'min_samples_leaf': 18, 'min_samples_split': 6, 'n_estimators': 215}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.3, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.05000000000000006, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.05, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8152095080591625, 'min_samples_leaf': 2, 'min_samples_split': 18, 'n_estimators': 596}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.3994895263174411, 'min_samples_leaf': 18, 'min_samples_split': 12, 'n_estimators': 384}), OrderedDict({'learning_rate': 0.3, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.6645093127290888, 'min_samples_leaf': 12, 'min_samples_split': 3, 'n_estimators': 586}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 5, 'max_features': 0.4719397287737809, 'min_samples_leaf': 3, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 1.0, 'min_samples_leaf': 7, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.3, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.33093104750207936, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 5, 'max_features': 0.2032767333547601, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8741893011949277, 'min_samples_leaf': 20, 'min_samples_split': 8, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.069211251276717, 'loss': 'squared_error', 'max_depth': 15, 'max_features': 0.8420546098130419, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 35, 'max_features': 0.05, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 587}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 38, 'max_features': 0.05, 'min_samples_leaf': 14, 'min_samples_split': 20, 'n_estimators': 456}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 32, 'max_features': 0.05, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 233}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.05, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 565}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 40, 'max_features': 0.41631540617142265, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.3, 'loss': 'quantile', 'max_depth': 50, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 50, 'max_features': 1.0, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 241}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 45, 'max_features': 0.15653068407605802, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 25, 'max_features': 0.05, 'min_samples_leaf': 3, 'min_samples_split': 6, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 35, 'max_features': 0.4982891744329923, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 469}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.4494414808918529, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 466}), OrderedDict({'learning_rate': 0.06272243787133412, 'loss': 'huber', 'max_depth': 43, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 424}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 31, 'max_features': 0.6199322622765476, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 491}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 25, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.3, 'loss': 'quantile', 'max_depth': 50, 'max_features': 0.05, 'min_samples_leaf': 12, 'min_samples_split': 9, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 29, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 329}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.05, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 360}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 45, 'max_features': 0.959584364457961, 'min_samples_leaf': 20, 'min_samples_split': 18, 'n_estimators': 464}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 42, 'max_features': 0.590250287461224, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 351}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 13, 'max_features': 1.0, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 316}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 46, 'max_features': 0.05, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 427}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 50, 'max_features': 0.4751763014424905, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5595185970916238, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 506}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.4814168228680743, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 473}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.9289561203727933, 'min_samples_leaf': 20, 'min_samples_split': 11, 'n_estimators': 424}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 22, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 384}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 554}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 8, 'min_samples_split': 20, 'n_estimators': 507}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 9, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.518649470892029, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 469}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5863609121438971, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 490}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.6144286080693306, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 502}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 11, 'max_features': 0.9976221715508241, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 492}), OrderedDict({'learning_rate': 0.10605013561007184, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 484}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5668046786306737, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 483}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5938525729387618, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 520}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.6042335708693429, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 530}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5500650398994884, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 501}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 483}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5577771316524006, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 485}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5527365959191048, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 484}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 2, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 42, 'max_features': 0.453142002462739, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 265}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.6883146723129776, 'min_samples_leaf': 20, 'min_samples_split': 12, 'n_estimators': 466}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5644702435163604, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 451}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 39, 'max_features': 0.37282763677141895, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 526}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 24, 'max_features': 0.44897745159405306, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 471}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8018298563328353, 'min_samples_leaf': 13, 'min_samples_split': 20, 'n_estimators': 525}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 12, 'min_samples_split': 20, 'n_estimators': 554}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 30, 'max_features': 0.42870356770599083, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.7080657651375524, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 30, 'max_features': 0.496460881028694, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 380}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.7464016278683229, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 434}), OrderedDict({'learning_rate': 0.07188913024248468, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 15, 'min_samples_split': 20, 'n_estimators': 422}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 13, 'max_features': 0.7478254720428196, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 444}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.7591575347099071, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 443}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.9238240868904747, 'min_samples_leaf': 20, 'min_samples_split': 8, 'n_estimators': 447}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 32, 'max_features': 0.5346061259721143, 'min_samples_leaf': 14, 'min_samples_split': 20, 'n_estimators': 424}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 32, 'max_features': 0.3137432399231064, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 499}), OrderedDict({'learning_rate': 0.15381503130241325, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 319}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.7991477888975822, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 428}), OrderedDict({'learning_rate': 0.06087320098753678, 'loss': 'huber', 'max_depth': 5, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 429}), OrderedDict({'learning_rate': 0.07998849675431662, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.7706571185937957, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 406}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 1.0, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 440}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.6371585905597685, 'min_samples_leaf': 20, 'min_samples_split': 11, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.06765381857707368, 'loss': 'huber', 'max_depth': 38, 'max_features': 0.22443610955045035, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 353}), OrderedDict({'learning_rate': 0.3, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.41929656965185835, 'min_samples_leaf': 20, 'min_samples_split': 9, 'n_estimators': 295}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.6273257517919836, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.12783105816923684, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.9556125483207575, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.07749570068343475, 'loss': 'huber', 'max_depth': 13, 'max_features': 0.8758358313095355, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 368}), OrderedDict({'learning_rate': 0.2260039990011338, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.7757987605414915, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 194}), OrderedDict({'learning_rate': 0.01, 'loss': 'squared_error', 'max_depth': 5, 'max_features': 0.8501192105423677, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.04787874934586275, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8630297590604795, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 487}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 31, 'max_features': 0.7239240835435724, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 457}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.8507211310439134, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.1684527729373134, 'loss': 'huber', 'max_depth': 32, 'max_features': 0.6858056724739374, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 100}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.6395878730853559, 'min_samples_leaf': 20, 'min_samples_split': 13, 'n_estimators': 439}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6835818374485269, 'min_samples_leaf': 20, 'min_samples_split': 12, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 14, 'max_features': 0.554297313849215, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 30, 'max_features': 0.2638803398868849, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 471}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 11, 'max_features': 0.7841083495670876, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 10, 'max_features': 0.6366784071933944, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 547}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6388842008758954, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6280430318849287, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6267777392048834, 'min_samples_leaf': 8, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6142730758798651, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5665291231338162, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 506}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5984059494205354, 'min_samples_leaf': 20, 'min_samples_split': 6, 'n_estimators': 495}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 10, 'max_features': 0.5682524029823477, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5814331594351602, 'min_samples_leaf': 20, 'min_samples_split': 4, 'n_estimators': 501}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6426595505952409, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6090385940180049, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6121640295643933, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 39, 'max_features': 0.7409033418670655, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6337792710727075, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6281768209060508, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 583}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.633253868217572, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.4926034226915183, 'min_samples_leaf': 20, 'min_samples_split': 7, 'n_estimators': 536}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 10, 'max_features': 0.6273959076153093, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6189938633788944, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 579}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6223491718269012, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 583}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5900626725614134, 'min_samples_leaf': 20, 'min_samples_split': 5, 'n_estimators': 487}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6065485798760388, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 578}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.5940173425382874, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 576}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6450801404400685, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 580}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6528691267271145, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 578}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.6050761043602958, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 473}), OrderedDict({'learning_rate': 0.02143430322603061, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6202710467628193, 'min_samples_leaf': 20, 'min_samples_split': 13, 'n_estimators': 584}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.5959313856972089, 'min_samples_leaf': 20, 'min_samples_split': 6, 'n_estimators': 473}), OrderedDict({'learning_rate': 0.17962718928191632, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.37013448671633203, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6367245217606273, 'min_samples_leaf': 17, 'min_samples_split': 2, 'n_estimators': 584}), OrderedDict({'learning_rate': 0.057188381190078304, 'loss': 'huber', 'max_depth': 5, 'max_features': 0.6726213107795599, 'min_samples_leaf': 20, 'min_samples_split': 6, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.02488631089823056, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.5994766540201915, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 575}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6738008374284049, 'min_samples_leaf': 20, 'min_samples_split': 15, 'n_estimators': 577}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6597218262965502, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 580}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6585523121919067, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 581}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.663284469963354, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 579}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6631973283704357, 'min_samples_leaf': 20, 'min_samples_split': 16, 'n_estimators': 580}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6669032123012212, 'min_samples_leaf': 20, 'min_samples_split': 2, 'n_estimators': 582}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6696527690713066, 'min_samples_leaf': 20, 'min_samples_split': 17, 'n_estimators': 578}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 9, 'max_features': 0.6560183429154937, 'min_samples_leaf': 20, 'min_samples_split': 20, 'n_estimators': 576}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 50, 'max_features': 0.45829240256527876, 'min_samples_leaf': 20, 'min_samples_split': 4, 'n_estimators': 600}), OrderedDict({'learning_rate': 0.01, 'loss': 'huber', 'max_depth': 8, 'max_features': 0.6590489065259365, 'min_samples_leaf': 20, 'min_samples_split': 3, 'n_estimators': 586})]
+split0_test_score: [-0.70186272 -0.51830869 -0.711737   -0.63646543 -0.48952819 -0.59881279
+ -0.46859642 -0.60742483 -0.48843203 -0.48297824 -0.46041005 -0.48674102
+ -0.59699123 -0.52100363 -0.67772331 -0.4597861  -0.46569029 -0.51505913
+ -0.47095497 -0.47556099 -0.52091768 -0.50213399 -0.49430245 -0.5814802
+ -0.49418698 -0.46208842 -0.46555772 -0.4930563  -0.46332492 -0.45969977
+ -0.65000068 -0.53124586 -0.47539542 -0.52337773 -0.45765667 -0.45893736
+ -0.47706772 -0.468434   -0.49765394 -0.61472147 -0.46641443 -0.48537176
+ -0.48683384 -0.46271063 -0.46146253 -0.50218616 -0.46513717 -0.46558411
+ -0.46046935 -0.46015005 -0.46327737 -0.46659673 -0.46017036 -0.46074038
+ -0.45954349 -0.4588013  -0.45991152 -0.45976138 -0.45964444 -0.46746931
+ -0.4600248  -0.46003038 -0.460542   -0.45988683 -0.46128741 -0.45989572
+ -0.45981516 -0.4605328  -0.45988818 -0.47255321 -0.46084034 -0.4598463
+ -0.45979742 -0.45884787 -0.4594034  -0.45974983 -0.45881617 -0.46145816
+ -0.46069246 -0.46051448 -0.46181097 -0.45951715 -0.46098    -0.46298767
+ -0.46068145 -0.46837632 -0.46831563 -0.46096558 -0.46062492 -0.46273746
+ -0.46728953 -0.47284232 -0.47918966 -0.48895973 -0.45979529 -0.47486981
+ -0.46839372 -0.47093018 -0.46688248 -0.45996314 -0.46126823 -0.45936124
+ -0.47549526 -0.45988915 -0.45654462 -0.45773085 -0.46374652 -0.45808741
+ -0.45627986 -0.45569312 -0.45592008 -0.45731648 -0.45523709 -0.46023347
+ -0.45948716 -0.45578637 -0.45965602 -0.45596325 -0.45573324 -0.45643694
+ -0.46205363 -0.45580237 -0.45542031 -0.4557593  -0.45946753 -0.45625163
+ -0.45520262 -0.45532069 -0.45930108 -0.45501959 -0.45588571 -0.45552417
+ -0.45533045 -0.45951141 -0.45626931 -0.45884607 -0.48028542 -0.45594774
+ -0.4618972  -0.45944538 -0.45623613 -0.45574164 -0.45509338 -0.45550102
+ -0.45558217 -0.45581523 -0.45591328 -0.45592766 -0.45858924 -0.45477709]
+split1_test_score: [-0.70732524 -0.52774023 -0.70778274 -0.62799045 -0.49479561 -0.59982324
+ -0.46912487 -0.60443811 -0.48882043 -0.48412827 -0.45714545 -0.48737565
+ -0.59582939 -0.52434573 -0.67069066 -0.45761405 -0.46708689 -0.51471525
+ -0.46972815 -0.47949497 -0.52681832 -0.49366204 -0.49633875 -0.58366141
+ -0.49089912 -0.46369248 -0.46721791 -0.49446815 -0.46452782 -0.46099721
+ -0.6443377  -0.5198206  -0.48032118 -0.52908905 -0.46015734 -0.46051255
+ -0.48109668 -0.466614   -0.49348921 -0.61706445 -0.46756749 -0.4809259
+ -0.48929066 -0.46416768 -0.46190329 -0.50323409 -0.46707656 -0.46673214
+ -0.46058137 -0.46080473 -0.46289204 -0.46932632 -0.45917764 -0.4593993
+ -0.45757847 -0.46035204 -0.46040562 -0.4606782  -0.45792948 -0.46290619
+ -0.46007243 -0.46086298 -0.46085883 -0.46023516 -0.4608145  -0.46086903
+ -0.46067706 -0.45746517 -0.46102355 -0.47396719 -0.46167398 -0.46017131
+ -0.46092829 -0.46038879 -0.45975588 -0.45850994 -0.46032158 -0.46356128
+ -0.46052348 -0.46221865 -0.46034759 -0.45861338 -0.46097252 -0.46452998
+ -0.46251086 -0.47018547 -0.46407236 -0.46145093 -0.45777919 -0.46013438
+ -0.46898356 -0.46759521 -0.47892988 -0.47951135 -0.45994867 -0.47797486
+ -0.47162398 -0.46745705 -0.46326556 -0.4575059  -0.4610986  -0.45779656
+ -0.47879087 -0.46074995 -0.45491894 -0.4586402  -0.46480563 -0.45697351
+ -0.45568597 -0.45518629 -0.45515968 -0.45527156 -0.45500899 -0.46085139
+ -0.46036878 -0.45520557 -0.46058358 -0.45521202 -0.4554191  -0.45539799
+ -0.4624722  -0.45452021 -0.45525898 -0.45535436 -0.46150451 -0.45536902
+ -0.45561871 -0.45462995 -0.46096875 -0.45565209 -0.45545064 -0.45453863
+ -0.45548419 -0.460324   -0.45445348 -0.4611329  -0.47791044 -0.45447695
+ -0.45661053 -0.45626468 -0.45460737 -0.45533265 -0.45507233 -0.45505394
+ -0.45469088 -0.45439464 -0.45502506 -0.45508305 -0.46204304 -0.45424467]
+split2_test_score: [-0.72423142 -0.51549047 -0.71722003 -0.64388251 -0.49604487 -0.61263479
+ -0.46847881 -0.61285098 -0.49038635 -0.48286569 -0.45266187 -0.48066554
+ -0.58834377 -0.52158261 -0.67116281 -0.4528009  -0.46260969 -0.51782857
+ -0.46599728 -0.47977077 -0.52776821 -0.49306794 -0.48855509 -0.57224905
+ -0.49353419 -0.45509827 -0.45841471 -0.48194085 -0.45415391 -0.45584181
+ -0.66355741 -0.52519528 -0.47004731 -0.53001528 -0.45340389 -0.45466699
+ -0.47984749 -0.46569719 -0.49542449 -0.6115979  -0.46674521 -0.4783616
+ -0.47927069 -0.46204349 -0.45618947 -0.50343989 -0.45564231 -0.46275053
+ -0.45758436 -0.45446048 -0.45488369 -0.46351381 -0.45202916 -0.45250288
+ -0.45115383 -0.45621986 -0.4564565  -0.45752045 -0.45672556 -0.45755706
+ -0.45777318 -0.45730706 -0.45727126 -0.45776467 -0.45332483 -0.4570665
+ -0.45770359 -0.45234362 -0.45544975 -0.46811963 -0.45952656 -0.45625364
+ -0.45464793 -0.45380757 -0.45333456 -0.45199608 -0.45525734 -0.46126116
+ -0.45390601 -0.45848995 -0.45540106 -0.45618991 -0.45891302 -0.46100193
+ -0.45884777 -0.46141601 -0.45935407 -0.45938607 -0.45180241 -0.45465272
+ -0.46574071 -0.46427398 -0.47273948 -0.47486876 -0.45302152 -0.48044971
+ -0.46875934 -0.46575243 -0.45921156 -0.45233086 -0.45812756 -0.45161894
+ -0.48143111 -0.45650179 -0.45117664 -0.45471693 -0.45535783 -0.45406496
+ -0.45108758 -0.45022606 -0.44995791 -0.45074266 -0.44970422 -0.45757073
+ -0.45708337 -0.45163585 -0.45729507 -0.44983529 -0.44960203 -0.44995827
+ -0.46069925 -0.44975557 -0.45020669 -0.45028692 -0.45588001 -0.45053685
+ -0.45015331 -0.4500821  -0.45686535 -0.44978683 -0.45067546 -0.4498715
+ -0.4499647  -0.4570012  -0.45047468 -0.45684009 -0.47128802 -0.45071669
+ -0.45295467 -0.45220336 -0.45038624 -0.44924794 -0.44978784 -0.44974046
+ -0.44945988 -0.45030779 -0.44987107 -0.4503822  -0.45623247 -0.44901059]
+mean_test_score: [-0.71113979 -0.52051313 -0.71224659 -0.6361128  -0.49345622 -0.60375694
+ -0.46873337 -0.60823797 -0.48921294 -0.48332406 -0.45673912 -0.4849274
+ -0.59372146 -0.52231065 -0.67319226 -0.45673368 -0.46512896 -0.51586765
+ -0.46889347 -0.47827557 -0.52516807 -0.49628799 -0.49306543 -0.57913022
+ -0.49287343 -0.46029306 -0.46373012 -0.48982177 -0.46066889 -0.45884626
+ -0.65263193 -0.52542058 -0.47525464 -0.52749402 -0.45707263 -0.45803897
+ -0.4793373  -0.46691506 -0.49552255 -0.61446128 -0.46690904 -0.48155309
+ -0.48513173 -0.46297393 -0.45985176 -0.50295338 -0.46261868 -0.46502226
+ -0.45954503 -0.45847176 -0.46035104 -0.46647895 -0.45712572 -0.45754752
+ -0.45609193 -0.45845773 -0.45892454 -0.45932001 -0.45809983 -0.46264419
+ -0.45929014 -0.45940014 -0.45955736 -0.45929555 -0.45847558 -0.45927708
+ -0.4593986  -0.45678053 -0.45878716 -0.47154668 -0.46068029 -0.45875708
+ -0.45845788 -0.45768141 -0.45749794 -0.45675195 -0.4581317  -0.46209353
+ -0.45837398 -0.4604077  -0.45918654 -0.45810681 -0.46028851 -0.46283986
+ -0.46068003 -0.46665927 -0.46391402 -0.46060086 -0.45673551 -0.45917485
+ -0.46733794 -0.46823717 -0.47695301 -0.48111328 -0.45758849 -0.47776479
+ -0.46959235 -0.46804656 -0.46311987 -0.45659997 -0.4601648  -0.45625892
+ -0.47857241 -0.45904696 -0.4542134  -0.45702933 -0.46130332 -0.45637529
+ -0.45435114 -0.45370182 -0.45367922 -0.45444357 -0.45331677 -0.45955186
+ -0.45897977 -0.45420926 -0.45917822 -0.45367019 -0.45358479 -0.45393107
+ -0.46174169 -0.45335938 -0.45362866 -0.45380019 -0.45895068 -0.4540525
+ -0.45365821 -0.45334425 -0.45904506 -0.45348617 -0.45400394 -0.45331143
+ -0.45359311 -0.45894553 -0.45373249 -0.45893969 -0.47649463 -0.45371379
+ -0.45715413 -0.45597114 -0.45374325 -0.45344074 -0.45331785 -0.45343181
+ -0.45324431 -0.45350589 -0.45360314 -0.45379764 -0.45895491 -0.45267745]
+std_test_score: [0.009522   0.00523825 0.00386957 0.0064927  0.00282398 0.00629113
+ 0.00028097 0.00348234 0.00084474 0.00057051 0.0031762  0.00302471
+ 0.00383207 0.0014583  0.00320973 0.00291885 0.00187041 0.00139367
+ 0.00210827 0.0019228  0.00303039 0.00414085 0.00329586 0.00494654
+ 0.00142126 0.00373119 0.00381918 0.00560238 0.00463288 0.0021895
+ 0.00806399 0.00466706 0.00419547 0.00293512 0.00278784 0.00246955
+ 0.00168391 0.0011374  0.00170166 0.00223928 0.00048478 0.00289605
+ 0.00426402 0.00088696 0.00259588 0.00054897 0.00499617 0.00167334
+ 0.00138715 0.00284896 0.00386919 0.00237441 0.00362653 0.00360887
+ 0.00358273 0.00170436 0.00175679 0.00132639 0.0011977  0.0040509
+ 0.00107283 0.00151856 0.00162168 0.0010918  0.00364724 0.00161283
+ 0.00124914 0.00337809 0.00240499 0.00249109 0.00088396 0.00177517
+ 0.00273331 0.00281053 0.00294747 0.00340079 0.00212336 0.00104097
+ 0.00316009 0.00152411 0.0027426  0.00140478 0.00097262 0.00144411
+ 0.00149545 0.00378039 0.00366025 0.00088154 0.0036766  0.0033696
+ 0.00132433 0.00352734 0.0029813  0.00586308 0.00322995 0.00228283
+ 0.00144431 0.00215452 0.00313333 0.00318103 0.00144221 0.00334256
+ 0.00242822 0.0018337  0.00224754 0.00167672 0.00422628 0.00169577
+ 0.00232039 0.00246643 0.00264962 0.00274687 0.00255615 0.0014234
+ 0.00138842 0.00183506 0.00138439 0.00272897 0.00281916 0.00284103
+ 0.00075666 0.00260149 0.0024206  0.00248975 0.0023251  0.00251192
+ 0.00248415 0.00232386 0.00168496 0.00262854 0.00236028 0.00246545
+ 0.00256645 0.00141431 0.00241996 0.00175378 0.00380716 0.00220269
+ 0.00367095 0.00296382 0.00246513 0.00296946 0.00249611 0.00261655
+ 0.00270062 0.00233458 0.00266377 0.00243957 0.0023862  0.00260196]
+rank_test_score: [149 136 150 146 131 143 111 144 127 124  39 125 142 137 148  37 103 135
+ 112 119 138 133 130 141 129  85 100 128  89  61 147 139 115 140  43  50
+ 121 107 132 145 106 123 126  98  82 134  95 102  79  57  86 104  44  47
+  33  55  62  76  51  96  74  78  81  75  58  73  77  41  60 114  91  59
+  56  49  46  40  53  94  54  87  72  52  84  97  90 105 101  88  38  70
+ 108 110 117 122  48 118 113 109  99  36  83  34 120  69  29  42  92  35
+  30  19  18  31   4  80  67  28  71  17  12  25  93   7  15  24  65  27
+  16   6  68  10  26   3  13  64  21  63 116  20  45  32  22   9   5   8
+   2  11  14  23  66   1]

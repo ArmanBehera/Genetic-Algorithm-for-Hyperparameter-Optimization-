@@ -1,0 +1,40 @@
+Iteration_4
+Time taken for Random Search to optimize model: 28838.1219 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.041839458896368725), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.6176551557015898), 'min_samples_leaf': 4, 'min_samples_split': 12, 'n_estimators': 453}
+Accuracy on Training dataset: 0.35727708619233767
+Accuracy on Testing dataset: 0.44353704685967493
+Random Search setting: n_iter: 500, cv=3, n_jobs=1
+
+Iteration_5
+Time taken for Random Search to optimize model: 62266.1658 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.04009724496015291), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.8248200342339276), 'min_samples_leaf': 12, 'min_samples_split': 2, 'n_estimators': 195}
+Accuracy on Training dataset: 0.3939866565877518
+Accuracy on Testing dataset: 0.4377720928967723
+Random Search setting: n_iter: 1000, cv=3, n_jobs=1
+Iteration_6
+Time taken for Random Search to optimize model: 124947.4187 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.033796310359739686), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.8030581629454309), 'min_samples_leaf': 13, 'min_samples_split': 17, 'n_estimators': 204}
+Accuracy on Training dataset: 0.3962118366411366
+Accuracy on Testing dataset: 0.4459322258609277
+Random Search setting: n_iter: 2000, cv=3, n_jobs=1
+
+Iteration_1
+Time taken for Random Search to optimize model: 14238.2503 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.12486818636492399), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.4498978911428215), 'min_samples_leaf': 8, 'min_samples_split': 4, 'n_estimators': 151}
+Accuracy on Training dataset: 0.3666974459514706
+Accuracy on Testing dataset: 0.45205091626788196
+Random Search setting: n_iter: 500, cv=3, n_jobs=1
+
+Iteration_2
+Time taken for Random Search to optimize model: 27838.0846 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.10377363067565051), 'loss': 'huber', 'max_depth': 5, 'max_features': np.float64(0.5851302900994099), 'min_samples_leaf': 7, 'min_samples_split': 8, 'n_estimators': 238}
+Accuracy on Training dataset: 0.3794771852010258
+Accuracy on Testing dataset: 0.4545931634425553
+Random Search setting: n_iter: 1000, cv=3, n_jobs=1
+
+Iteration_3
+Time taken for Random Search to optimize model: 55975.0753 seconds
+Random Search Best Parameters: {'learning_rate': np.float64(0.10996901381678853), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.7819695243723389), 'min_samples_leaf': 6, 'min_samples_split': 10, 'n_estimators': 167}
+Accuracy on Training dataset: 0.35808048967938805
+Accuracy on Testing dataset: 0.44927813457104165
+Random Search setting: n_iter: 2000, cv=3, n_jobs=1

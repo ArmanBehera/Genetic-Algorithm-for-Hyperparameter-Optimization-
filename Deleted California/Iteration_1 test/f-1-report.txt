@@ -1,0 +1,6 @@
+Time taken for GA to optimize model: 194.3927 seconds
+GA Best Parameters: {'n_estimators': 212, 'learning_rate': 0.1, 'max_depth': 29, 'min_samples_split': 6, 'min_samples_leaf': 6, 'max_features': 0.5, 'loss': 'huber'}
+Accuracy on Training dataset: 0.051526721037390824
+Accuracy on Testing dataset: 0.4569371475455609
+
+This is a random, not part of the generation data below. Just randomly got a super accurate model for the training dataset. 

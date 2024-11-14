@@ -1,0 +1,161 @@
+Iteration_1
+GA Configuration: Population Size: 60
+Number of generations: 25
+Alpha Rank: 0.4
+Beta Rank: 1.6
+Elitism Rate: 0.05
+Reduction Rate: 0.0
+GA Search Space: {'n_estimators': [150, 300], 'learning_rate': [0.1, 0.3], 'max_depth': [5, 30], 'min_samples_split': [4, 10], 'min_samples_leaf': [4, 10], 'max_features': [0.1, 0.9], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 12310.3802 seconds
+GA Best Parameters: {'n_estimators': 165, 'learning_rate': 0.1, 'max_depth': 6, 'min_samples_split': 6, 'min_samples_leaf': 9, 'max_features': 0.8, 'loss': 'huber'}
+Accuracy on Training dataset: 0.36721691934236933
+Accuracy on Testing dataset: 0.452426528911207
+Time taken: 12310.380171060562s
+
+Iteration_2
+GA Configuration: Population Size: 60
+Number of generations: 50
+Alpha Rank: 0.8
+Beta Rank: 1.2
+Elitism Rate: 0.05
+Reduction Rate: 0.0
+GA Search Space: {'n_estimators': [150, 300], 'learning_rate': [0.1, 0.3], 'max_depth': [5, 30], 'min_samples_split': [4, 10], 'min_samples_leaf': [4, 10], 'max_features': [0.1, 0.9], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 37186.5732 seconds
+GA Best Parameters: {'n_estimators': 154, 'learning_rate': 0.1, 'max_depth': 7, 'min_samples_split': 9, 'min_samples_leaf': 7, 'max_features': 0.8, 'loss': 'huber'}
+Accuracy on Training dataset: 0.33798604022344425
+Accuracy on Testing dataset: 0.44791182918065664
+Time Taken: 37186.57317328453 s
+
+Iteration_4_2
+GA Configuration: Population Size: 200
+Number of generations: 30
+Alpha Rank: 0.4
+Beta Rank: 1.6
+Elitism Rate: 6/200
+Reduction Rate: 4/200
+GA Search Space: {'n_estimators': [150, 300], 'learning_rate': [0.1, 0.3], 'max_depth': [5, 30], 'min_samples_split': [4, 10], 'min_samples_leaf': [4, 10], 'max_features': [0.1, 0.9], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 35740.7008 seconds
+GA Best Parameters: {'n_estimators': 160, 'learning_rate': 0.1, 'max_depth': 6, 'min_samples_split': 7, 'min_samples_leaf': 5, 'max_features': 0.5, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3596970256891799
+Accuracy on Testing dataset: 0.4500463712076719
+Time Taken: 35740.7007958889s
+
+Iteration_3
+GA Configuration: Population Size: 200
+Number of generations: 30
+Alpha Rank: 0.4
+Beta Rank: 1.6
+Elitism Rate: 6/200
+Reduction Rate: 2/200
+GA Search Space: {'n_estimators': [150, 300], 'learning_rate': [0.1, 0.3], 'max_depth': [5, 30], 'min_samples_split': [4, 10], 'min_samples_leaf': [4, 10], 'max_features': [0.1, 0.9], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 45387.9725 seconds
+GA Best Parameters: {'n_estimators': 160, 'learning_rate': 0.1, 'max_depth': 7, 'min_samples_split': 8, 'min_samples_leaf': 9, 'max_features': 0.7, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3447978868905907
+Accuracy on Testing dataset: 0.44126016181361566
+Time Taken: 45387.97251081467 s
+
+Iteration_5_2
+GA Configuration: Population Size: 60
+Number of generations: 25
+Alpha Rank: 0.4
+Beta Rank: 1.6
+Elitism Rate: 0.05
+Reduction Rate: 0.0
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 29271.6264 seconds
+GA Best Parameters: {'n_estimators': 439, 'learning_rate': 0.02, 'max_depth': 8, 'min_samples_split': 19, 'min_samples_leaf': 16, 'max_features': 0.56, 'loss': 'huber'}
+Accuracy on Training dataset: 0.34650573120947264
+Accuracy on Testing dataset: 0.4531120401576915
+
+Iteration_5
+GA Configuration: Population Size: 60
+ Number of generations: 25
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 0.05
+ Reduction Rate: 0.0
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 33087.8506 seconds
+GA Best Parameters: {'n_estimators': 353, 'learning_rate': 0.02, 'max_depth': 7, 'min_samples_split': 14, 'min_samples_leaf': 18, 'max_features': 0.71, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3780081345798291
+Accuracy on Testing dataset: 0.44085647783086235
+
+Iteration_4
+GA Configuration: Population Size: 200
+ Number of generations: 30
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 6/200
+ Reduction Rate: 4/200
+GA Search Space: {'n_estimators': [150, 300], 'learning_rate': [0.1, 0.3], 'max_depth': [5, 30], 'min_samples_split': [4, 10], 'min_samples_leaf': [4, 10], 'max_features': [0.1, 0.9], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 36574.2418 seconds
+GA Best Parameters: {'n_estimators': 181, 'learning_rate': 0.1, 'max_depth': 7, 'min_samples_split': 7, 'min_samples_leaf': 9, 'max_features': 0.8, 'loss': 'huber'}
+Accuracy on Training dataset: 0.32940677925911455
+Accuracy on Testing dataset: 0.45417305556020343
+
+Iteration_6
+GA Configuration: Population Size: 60
+ Number of generations: 50
+ Alpha Rank: 0.8
+ Beta Rank: 1.2
+ Elitism Rate: 0.05
+ Reduction Rate: 0.0
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 54190.3923 seconds
+GA Best Parameters: {'n_estimators': 255, 'learning_rate': 0.04, 'max_depth': 7, 'min_samples_split': 19, 'min_samples_leaf': 15, 'max_features': 0.66, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3635263185633671
+Accuracy on Testing dataset: 0.4519774002713357
+
+Iteration_8_2
+GA Configuration: Population Size: 200
+ Number of generations: 30
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 6/200
+ Reduction Rate: 4/200
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 88368.1984 seconds
+GA Best Parameters: {'n_estimators': 316, 'learning_rate': 0.02, 'max_depth': 7, 'min_samples_split': 10, 'min_samples_leaf': 10, 'max_features': 0.66, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3745414876860369
+Accuracy on Testing dataset: 0.44396020654604423
+
+Iteration_7_2
+GA Configuration: Population Size: 200
+ Number of generations: 30
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 6/200
+ Reduction Rate: 2/200
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 103135.4315 seconds
+GA Best Parameters: {'n_estimators': 356, 'learning_rate': 0.02, 'max_depth': 7, 'min_samples_split': 4, 'min_samples_leaf': 16, 'max_features': 0.66, 'loss': 'huber'}
+Accuracy on Training dataset: 0.37508373221197405
+Accuracy on Testing dataset: 0.4437786036968868
+
+Iteration_8_2
+GA Configuration: Population Size: 200
+ Number of generations: 30
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 0.05
+ Reduction Rate: 4/200
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 100362.6383 seconds
+GA Best Parameters: {'n_estimators': 395, 'learning_rate': 0.02, 'max_depth': 8, 'min_samples_split': 10, 'min_samples_leaf': 19, 'max_features': 0.65, 'loss': 'huber'}
+Accuracy on Training dataset: 0.35401953262349195
+Accuracy on Testing dataset: 0.4450456721676805
+
+Iteration_7_3
+GA Configuration: Population Size: 200
+ Number of generations: 30
+ Alpha Rank: 0.4
+ Beta Rank: 1.6
+ Elitism Rate: 6/200
+ Reduction Rate: 2/200
+GA Search Space: {'n_estimators': [100, 600], 'learning_rate': [0.01, 0.3], 'max_depth': [5, 50], 'min_samples_split': [2, 20], 'min_samples_leaf': [2, 20], 'max_features': [0.05, 1.0], 'loss': ['huber', 'squared_error', 'quantile']}
+Time taken for GA to optimize model: 101017.4218 seconds
+GA Best Parameters: {'n_estimators': 229, 'learning_rate': 0.03, 'max_depth': 8, 'min_samples_split': 11, 'min_samples_leaf': 6, 'max_features': 0.76, 'loss': 'huber'}
+Accuracy on Training dataset: 0.3340261890890428
+Accuracy on Testing dataset: 0.445095873241338
+
+
