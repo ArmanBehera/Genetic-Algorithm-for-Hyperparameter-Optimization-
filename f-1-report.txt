@@ -1,0 +1,3 @@
+Time taken for Bayes Search to optimize model: 10.2182 seconds
+Bayes Search Best Parameters: OrderedDict({'alpha': 0.0001, 'copy_X': False, 'fit_intercept': True, 'l1_ratio': 0.001, 'max_iter': 5000, 'positive': False, 'precompute': False, 'selection': 'random', 'tol': 1e-05, 'warm_start': False})
+
