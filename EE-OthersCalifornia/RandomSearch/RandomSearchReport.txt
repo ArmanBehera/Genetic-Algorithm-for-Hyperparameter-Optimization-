@@ -11,6 +11,7 @@ Random Search Best Parameters: {'learning_rate': np.float64(0.04009724496015291)
 Accuracy on Training dataset: 0.3939866565877518
 Accuracy on Testing dataset: 0.4377720928967723
 Random Search setting: n_iter: 1000, cv=3, n_jobs=1
+
 Iteration_6
 Time taken for Random Search to optimize model: 124947.4187 seconds
 Random Search Best Parameters: {'learning_rate': np.float64(0.033796310359739686), 'loss': 'huber', 'max_depth': 6, 'max_features': np.float64(0.8030581629454309), 'min_samples_leaf': 13, 'min_samples_split': 17, 'n_estimators': 204}
