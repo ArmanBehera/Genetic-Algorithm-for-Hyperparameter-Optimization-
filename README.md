@@ -1,24 +1,10 @@
-# Information about the Genetic Algorithm
+# Genetic Algorithm
+Genetic Algorithms (GAs) are specialised heuristic algorithms, a class of algorithms that prioritise finding good enough solutions over the best solution. They are often used for complex problems where evaluating each solution in the search space is too time-consuming or impractical. Drawing inspiration from genetics, the algorithm employs selection, crossover, and mutation mechanisms for its foundational operations.
 
-### File information
+GAs, introduced by John Holland in the 1970s, employ a population-based approach that assumes a correlation between the quality of neighbouring solutions. By combining the "genetic material" of high-quality solutions, GAs generate offspring that can potentially outperform their parents. Often, these solutions come from different regions of the search space, therefore reducing the risk of premature convergence. GAs are also one of the most prevalent metaheuristic approaches for hyperparameter optimization (Yang and Shami 4). Given the multi-modal nature of the hyperparameter search space, other popular heuristic algorithms, such as Hill Climbing and Simulated Annealing, may struggle to navigate the search space effectively.
 
-#### f-1: 
-    - Model Name:
-    - Fitness Function:
-    - Dataset used: 
-    - Population Size: 
-    - Maximum Generation count: 
-    - Elitism Rate: 
-    - Iteration Number:
+GAs are simple to implement, but their behavior is difficult to understand. As David E. Goldberg puts it, “Short, low order, and highly fit schemata are sampled, recombined [crossed over], and resampled to form strings of potentially higher fitness. In a way, by working with these particular schemata [the building blocks], we have reduced the complexity of our problem; instead of building high-performance strings by trying every conceivable combination, we construct better and better strings from the best partial solutions of past samplings.” This is in alignment with the building block hypothesis (BBH), which despite lacking consensus regarding its validity, has been consistently evaluated and used as reference throughout the years (Wikipedia, “Genetic Algorithm”). 
 
-    - Best solution found by GA:
-    - Time taken by GA:
+Hyperparameter optimisation has been a challenge in the machine learning industry since its inception, even though it plays a crucial role in the final accuracy. Having faced the same issue when optimising a K-Nearest Neighbor algorithm, manually finding the right set of hyperparameters can be time-consuming for data scientists, often requiring much experience working with the model. Therefore, the need for automated optimisation techniques is ever-increasing. GAs are one of the most prevalent metaheuristic approaches for hyperparameter optimisation (Yang and Shami 4). Given the multi-modal nature of the hyperparameter search space, other popular heuristic algorithms, such as Hill Climbing and Simulated Annealing, may struggle to navigate the search space effectively.
 
-    - Best Solution found by BayesSearch:
-    - Time taken:
-
-    - Best solution found by GridSearch: 
-    - Time taken: 
-
-    - Best solution found by RandomSearch:
-    - Time taken: 
+This research aims to prove the feasibility of GAs in the hyperparameter optimisation industry. Due to computational and time constraints, this GA will only focus on the Ensemble Gradient Boosting Regressor model for predicting housing prices in the Melbourne and California datasets. It aims to demonstrate the best optimisation algorithm from GA, Random Search (RS), and Bayes Search (BS) under different conditions. While this research is limited to one model and two datasets, the methodology can be extended to various models, datasets and optimisation problems across multiple fields.
